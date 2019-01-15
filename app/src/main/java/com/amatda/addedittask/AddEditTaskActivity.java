@@ -24,8 +24,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.android.architecture.blueprints.todoapp.Injection;
-import com.example.android.architecture.blueprints.todoapp.R;
+import com.amatda.Injection;
+import com.amatda.R;
 import com.amatda.util.ActivityUtils;
 import com.amatda.util.EspressoIdlingResource;
 

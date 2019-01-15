@@ -28,7 +28,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.android.architecture.blueprints.todoapp.R;
+import com.amatda.R;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

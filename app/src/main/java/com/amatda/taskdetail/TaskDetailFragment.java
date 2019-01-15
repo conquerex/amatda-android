@@ -34,7 +34,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.example.android.architecture.blueprints.todoapp.R;
+import com.amatda.R;
 import com.amatda.addedittask.AddEditTaskActivity;
 import com.amatda.addedittask.AddEditTaskFragment;
 import com.google.common.base.Preconditions;

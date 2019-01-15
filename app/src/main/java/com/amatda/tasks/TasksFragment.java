@@ -39,10 +39,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.android.architecture.blueprints.todoapp.R;
+import com.amatda.R;
 import com.amatda.addedittask.AddEditTaskActivity;
-import com.amatda.tasks.domain.model.Task;
 import com.amatda.taskdetail.TaskDetailActivity;
+import com.amatda.tasks.domain.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
