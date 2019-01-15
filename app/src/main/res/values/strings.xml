@@ -18,18 +18,18 @@
     <string name="app_name">아맞다</string>
     <string name="add_task">새로운 준비물</string>
     <string name="edit_task">준비물 수정</string>
-    <string name="task_marked_complete">Task marked complete</string>
-    <string name="task_marked_active">Task marked active</string>
+    <string name="task_marked_complete">선택되었습니다.</string>
+    <string name="task_marked_active">선택이 해제되었습니다.</string>
     <string name="loading_tasks_error">Error while loading tasks</string>
-    <string name="completed_tasks_cleared">Completed tasks cleared</string>
+    <string name="completed_tasks_cleared">준비한 항목을 모두 삭제하였습니다.</string>
     <string name="menu_filter">Filter</string>
-    <string name="menu_clear">Clear completed</string>
-    <string name="menu_delete_task">Delete task</string>
+    <string name="menu_clear">준비한 항목 모두 삭제</string>
+    <string name="menu_delete_task">삭제</string>
     <string name="navigation_view_header_title">아맞다</string>
     <string name="title_hint">준비물을 입력해주세요. (필수)</string>
     <string name="description_hint">어떤 준비물인지 상세히 적어주세요. (선택)</string>
     <string name="empty_task_message">TO DOs cannot be empty</string>
-    <string name="successfully_saved_task_message">TO-DO saved</string>
+    <string name="successfully_saved_task_message">준비물을 정상적으로 등록하였습니다.</string>
     <string name="list_title">준비물 항목</string>
     <string name="statistics_title">통계치</string>
     <string name="statistics_no_tasks">기록된 준비물이 없어요.</string>
@@ -44,9 +44,9 @@
         <item>@string/nav_active</item>
         <item>@string/nav_completed</item>
     </string-array>
-    <string name="nav_all">All</string>
-    <string name="nav_active">Active</string>
-    <string name="nav_completed">Completed</string>
+    <string name="nav_all">모두보기</string>
+    <string name="nav_active">준비할 것</string>
+    <string name="nav_completed">준비한 것</string>
     <string name="label_all">All TO-DOs</string>
     <string name="label_active">Active TO-DOs</string>
     <string name="label_completed">Completed TO-DOs</string>
