@@ -17,12 +17,14 @@
 package com.example.android.architecture.blueprints.todoapp.addedittask;
 
 import com.example.android.architecture.blueprints.todoapp.TestUseCaseScheduler;
-import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.GetTask;
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.SaveTask;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
+import com.amatda.UseCaseHandler;
+import com.amatda.addedittask.AddEditTaskContract;
+import com.amatda.addedittask.AddEditTaskPresenter;
+import com.amatda.addedittask.domain.usecase.GetTask;
+import com.amatda.addedittask.domain.usecase.SaveTask;
+import com.amatda.data.source.TasksDataSource;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.tasks.domain.model.Task;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -17,15 +17,18 @@
 package com.example.android.architecture.blueprints.todoapp.tasks;
 
 import com.example.android.architecture.blueprints.todoapp.TestUseCaseScheduler;
-import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource.LoadTasksCallback;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.filter.FilterFactory;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.ActivateTask;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.ClearCompleteTasks;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.CompleteTask;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.GetTasks;
+import com.amatda.UseCaseHandler;
+import com.amatda.data.source.TasksDataSource.LoadTasksCallback;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.tasks.TasksContract;
+import com.amatda.tasks.TasksFilterType;
+import com.amatda.tasks.TasksPresenter;
+import com.amatda.tasks.domain.filter.FilterFactory;
+import com.amatda.tasks.domain.model.Task;
+import com.amatda.tasks.domain.usecase.ActivateTask;
+import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
+import com.amatda.tasks.domain.usecase.CompleteTask;
+import com.amatda.tasks.domain.usecase.GetTasks;
 import com.google.common.collect.Lists;
 
 import org.junit.Before;

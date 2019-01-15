@@ -21,8 +21,11 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
+import com.amatda.data.source.TasksDataSource;
+import com.amatda.data.source.local.TasksDao;
+import com.amatda.data.source.local.TasksLocalDataSource;
+import com.amatda.data.source.local.ToDoDatabase;
+import com.amatda.tasks.domain.model.Task;
 import com.example.android.architecture.blueprints.todoapp.util.SingleExecutors;
 
 import org.junit.After;

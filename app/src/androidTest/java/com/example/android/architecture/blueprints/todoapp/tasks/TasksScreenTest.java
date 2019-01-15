@@ -28,7 +28,8 @@ import android.widget.ListView;
 import com.example.android.architecture.blueprints.todoapp.Injection;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.TestUtils;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
+import com.amatda.data.source.TasksDataSource;
+import com.amatda.tasks.TasksActivity;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

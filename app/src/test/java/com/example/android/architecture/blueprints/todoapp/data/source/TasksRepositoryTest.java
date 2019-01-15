@@ -25,9 +25,9 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import android.content.Context;
-
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
+import com.amatda.data.source.TasksDataSource;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.tasks.domain.model.Task;
 import com.google.common.collect.Lists;
 
 import org.junit.After;

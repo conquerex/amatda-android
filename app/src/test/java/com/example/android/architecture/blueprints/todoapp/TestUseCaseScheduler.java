@@ -16,6 +16,9 @@
 
 package com.example.android.architecture.blueprints.todoapp;
 
+import com.amatda.UseCase;
+import com.amatda.UseCaseScheduler;
+
 /**
  * A scheduler that executes synchronously, for testing purposes.
  */
@@ -27,7 +30,7 @@ public class TestUseCaseScheduler implements UseCaseScheduler {
 
     @Override
     public <R extends UseCase.ResponseValue> void notifyResponse(R response,
-            UseCase.UseCaseCallback<R> useCaseCallback) {
+                                                                 UseCase.UseCaseCallback<R> useCaseCallback) {
         useCaseCallback.onSuccess(response);
     }
 

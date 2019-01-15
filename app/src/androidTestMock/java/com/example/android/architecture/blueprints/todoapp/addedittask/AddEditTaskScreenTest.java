@@ -32,9 +32,11 @@ import android.view.View;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.TestUtils;
 import com.example.android.architecture.blueprints.todoapp.data.FakeTasksRemoteDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
-import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingResource;
+import com.amatda.addedittask.AddEditTaskActivity;
+import com.amatda.addedittask.AddEditTaskFragment;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.tasks.domain.model.Task;
+import com.amatda.util.EspressoIdlingResource;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

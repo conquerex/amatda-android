@@ -20,11 +20,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.example.android.architecture.blueprints.todoapp.TestUseCaseScheduler;
-import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.statistics.domain.usecase.GetStatistics;
+import com.amatda.UseCaseHandler;
+import com.amatda.statistics.StatisticsContract;
+import com.amatda.statistics.StatisticsPresenter;
+import com.amatda.tasks.domain.model.Task;
+import com.amatda.data.source.TasksDataSource;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.statistics.domain.usecase.GetStatistics;
 import com.google.common.collect.Lists;
 
 import org.junit.Before;

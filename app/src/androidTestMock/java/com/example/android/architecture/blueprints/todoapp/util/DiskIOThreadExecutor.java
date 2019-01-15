@@ -2,6 +2,8 @@ package com.example.android.architecture.blueprints.todoapp.util;
 
 import android.support.annotation.NonNull;
 
+import com.amatda.util.EspressoIdlingResource;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 

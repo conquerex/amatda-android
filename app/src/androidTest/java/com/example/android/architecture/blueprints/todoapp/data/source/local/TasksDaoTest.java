@@ -20,7 +20,8 @@ import android.arch.persistence.room.Room;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
+import com.amatda.data.source.local.ToDoDatabase;
+import com.amatda.tasks.domain.model.Task;
 
 import org.junit.After;
 import org.junit.Before;

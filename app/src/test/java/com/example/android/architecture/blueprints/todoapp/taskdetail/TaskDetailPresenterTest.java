@@ -17,14 +17,16 @@
 package com.example.android.architecture.blueprints.todoapp.taskdetail;
 
 import com.example.android.architecture.blueprints.todoapp.TestUseCaseScheduler;
-import com.example.android.architecture.blueprints.todoapp.UseCaseHandler;
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.DeleteTask;
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.GetTask;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.model.Task;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.ActivateTask;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.CompleteTask;
+import com.amatda.UseCaseHandler;
+import com.amatda.addedittask.domain.usecase.DeleteTask;
+import com.amatda.addedittask.domain.usecase.GetTask;
+import com.amatda.data.source.TasksDataSource;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.taskdetail.TaskDetailContract;
+import com.amatda.taskdetail.TaskDetailPresenter;
+import com.amatda.tasks.domain.model.Task;
+import com.amatda.tasks.domain.usecase.ActivateTask;
+import com.amatda.tasks.domain.usecase.CompleteTask;
 
 import org.junit.Before;
 import org.junit.Test;
