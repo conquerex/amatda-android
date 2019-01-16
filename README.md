@@ -1,6 +1,7 @@
 # amatda-android
 종국소년단, 여행 준비물 가이드 App "아맞다"를 만들다.
 
+[![StackShare](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/jks/tech-stack)
 
 ```
  ______           ______  ______  ____    ______
