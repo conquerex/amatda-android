@@ -107,7 +107,10 @@ dependencies {
     androidTestImplementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     androidTestImplementation "com.android.support:design:$rootProject.supportLibraryVersion"
 
+    // Network (Retrofit, Okhttp, gson)
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.converterGsonVersion"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.converterOkhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.converterOkhttp"
 }

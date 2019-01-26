@@ -112,6 +112,8 @@ public class TasksActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        mTasksPresenter.getJKStest();
+
                         switch (menuItem.getItemId()) {
                             case R.id.list_navigation_menu_item:
                                 // Do nothing, we're already on that screen

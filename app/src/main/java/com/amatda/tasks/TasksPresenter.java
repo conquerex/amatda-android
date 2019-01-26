@@ -30,8 +30,14 @@ import com.amatda.tasks.domain.usecase.ActivateTask;
 import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
 import com.amatda.tasks.domain.usecase.CompleteTask;
 import com.amatda.tasks.domain.usecase.GetTasks;
+import com.amatda.util.ApiInterface;
+import com.amatda.util.NetworkSetting;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Listens to user actions from the UI ({@link TasksFragment}), retrieves the data and updates the
@@ -49,6 +55,7 @@ public class TasksPresenter implements TasksContract.Presenter {
     private TasksFilterType mCurrentFiltering = TasksFilterType.ALL_TASKS;
 
     private boolean mFirstLoad = true;
+    private ApiInterface apiInterface;
 
     private final UseCaseHandler mUseCaseHandler;
 
@@ -66,6 +73,23 @@ public class TasksPresenter implements TasksContract.Presenter {
 
 
         mTasksView.setPresenter(this);
+    }
+
+    public void getJKStest() {
+        apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
+
+        Call<Void> call = apiInterface.getTestApi();
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
     }
 
     @Override
