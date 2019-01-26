@@ -42,4 +42,7 @@ ext {
     rulesVersion = '1.0.1'
     espressoVersion = '3.0.1'
     roomVersion = "1.0.0"
+    retrofitVersion = "2.5.0"
+    gsonVersion = "2.8.5"
+    converterGsonVersion = "2.5.0"
 }
