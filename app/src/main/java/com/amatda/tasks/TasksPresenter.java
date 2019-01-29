@@ -40,7 +40,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Listens to user actions from the UI ({@link TasksFragment}), retrieves the data and updates the
+ * Listens to user actions from the UI ({@link CarrierMainFragment}), retrieves the data and updates the
  * UI as required.
  */
 public class TasksPresenter implements TasksContract.Presenter {

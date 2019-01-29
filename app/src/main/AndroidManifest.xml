@@ -27,7 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.amatda.tasks.TasksActivity"
+            android:name="com.amatda.tasks.CarrierMainActivity"
             android:theme="@style/AppTheme.OverlapSystemBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,12 +38,12 @@
         <activity android:name="com.amatda.addedittask.AddEditTaskActivity" />
         <activity
             android:name="com.amatda.statistics.StatisticsActivity"
-            android:parentActivityName="com.amatda.tasks.TasksActivity"
+            android:parentActivityName="com.amatda.tasks.CarrierMainActivity"
             tools:ignore="UnusedAttribute">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.amatda.tasks.TasksActivity" />
+                android:value="com.amatda.tasks.CarrierMainActivity" />
         </activity>
     </application>
 

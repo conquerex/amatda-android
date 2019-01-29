@@ -52,7 +52,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Display a grid of {@link Task}s. User can choose to view all, active or completed tasks.
  */
-public class TasksFragment extends Fragment implements TasksContract.View {
+public class CarrierMainFragment extends Fragment implements TasksContract.View {
 
     private TasksContract.Presenter mPresenter;
 
@@ -70,12 +70,12 @@ public class TasksFragment extends Fragment implements TasksContract.View {
 
     private TextView mFilteringLabelView;
 
-    public TasksFragment() {
+    public CarrierMainFragment() {
         // Requires empty public constructor
     }
 
-    public static TasksFragment newInstance() {
-        return new TasksFragment();
+    public static CarrierMainFragment newInstance() {
+        return new CarrierMainFragment();
     }
 
     @Override

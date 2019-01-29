@@ -79,8 +79,8 @@ public class TasksScreenTest {
      * blocks of Junit tests.
      */
     @Rule
-    public ActivityTestRule<TasksActivity> mTasksActivityTestRule =
-            new ActivityTestRule<TasksActivity>(TasksActivity.class) {
+    public ActivityTestRule<CarrierMainActivity> mTasksActivityTestRule =
+            new ActivityTestRule<CarrierMainActivity>(CarrierMainActivity.class) {
 
                 /**
                  * To avoid a long list of tasks and the need to scroll through the list to find a

@@ -34,7 +34,7 @@ import com.amatda.util.ActivityUtils;
 import com.amatda.util.EspressoIdlingResource;
 import com.amatda.Injection;
 
-public class TasksActivity extends AppCompatActivity {
+public class CarrierMainActivity extends AppCompatActivity {
 
     private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
 
@@ -62,19 +62,19 @@ public class TasksActivity extends AppCompatActivity {
             setupDrawerContent(navigationView);
         }
 
-        TasksFragment tasksFragment =
-                (TasksFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
-        if (tasksFragment == null) {
+        CarrierMainFragment carrierMainFragment =
+                (CarrierMainFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        if (carrierMainFragment == null) {
             // Create the fragment
-            tasksFragment = TasksFragment.newInstance();
+            carrierMainFragment = CarrierMainFragment.newInstance();
             ActivityUtils.addFragmentToActivity(
-                    getSupportFragmentManager(), tasksFragment, R.id.contentFrame);
+                    getSupportFragmentManager(), carrierMainFragment, R.id.contentFrame);
         }
 
         // Create the presenter
         mTasksPresenter = new TasksPresenter(
                 Injection.provideUseCaseHandler(),
-                tasksFragment,
+                carrierMainFragment,
                 Injection.provideGetTasks(getApplicationContext()),
                 Injection.provideCompleteTasks(getApplicationContext()),
                 Injection.provideActivateTask(getApplicationContext()),
@@ -120,7 +120,7 @@ public class TasksActivity extends AppCompatActivity {
                                 break;
                             case R.id.statistics_navigation_menu_item:
                                 Intent intent =
-                                        new Intent(TasksActivity.this, StatisticsActivity.class);
+                                        new Intent(CarrierMainActivity.this, StatisticsActivity.class);
                                 startActivity(intent);
                                 break;
                             default:
