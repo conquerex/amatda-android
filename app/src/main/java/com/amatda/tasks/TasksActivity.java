@@ -28,11 +28,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.amatda.Injection;
 import com.amatda.R;
 import com.amatda.statistics.StatisticsActivity;
 import com.amatda.util.ActivityUtils;
 import com.amatda.util.EspressoIdlingResource;
+import com.amatda.Injection;
 
 public class TasksActivity extends AppCompatActivity {
 
