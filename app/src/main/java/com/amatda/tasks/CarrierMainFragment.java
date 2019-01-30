@@ -56,19 +56,19 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
     private TasksContract.Presenter mPresenter;
 
-    private TasksAdapter mListAdapter;
-
-    private View mNoTasksView;
-
-    private ImageView mNoTaskIcon;
-
-    private TextView mNoTaskMainView;
-
-    private TextView mNoTaskAddView;
-
-    private LinearLayout mTasksView;
-
-    private TextView mFilteringLabelView;
+//    private TasksAdapter mListAdapter;
+//
+//    private View mNoTasksView;
+//
+//    private ImageView mNoTaskIcon;
+//
+//    private TextView mNoTaskMainView;
+//
+//    private TextView mNoTaskAddView;
+//
+//    private LinearLayout mTasksView;
+//
+//    private TextView mFilteringLabelView;
 
     public CarrierMainFragment() {
         // Requires empty public constructor
@@ -81,7 +81,6 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mListAdapter = new TasksAdapter(new ArrayList<Task>(0), mItemListener);
     }
 
     @Override
@@ -104,25 +103,8 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.tasks_frag, container, false);
+        View root = inflater.inflate(R.layout.fragment_carrier_main, container, false);
 
-        // Set up tasks view
-        ListView listView = (ListView) root.findViewById(R.id.tasks_list);
-        listView.setAdapter(mListAdapter);
-        mFilteringLabelView = (TextView) root.findViewById(R.id.filteringLabel);
-        mTasksView = (LinearLayout) root.findViewById(R.id.tasksLL);
-
-        // Set up  no tasks view
-        mNoTasksView = root.findViewById(R.id.noTasks);
-        mNoTaskIcon = (ImageView) root.findViewById(R.id.noTasksIcon);
-        mNoTaskMainView = (TextView) root.findViewById(R.id.noTasksMain);
-        mNoTaskAddView = (TextView) root.findViewById(R.id.noTasksAdd);
-        mNoTaskAddView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAddTask();
-            }
-        });
 
         // Set up floating action button
         FloatingActionButton fab =
@@ -136,120 +118,17 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
             }
         });
 
-        // Set up progress indicator
-        final ScrollChildSwipeRefreshLayout swipeRefreshLayout =
-                (ScrollChildSwipeRefreshLayout) root.findViewById(R.id.refresh_layout);
-        swipeRefreshLayout.setColorSchemeColors(
-                ContextCompat.getColor(getActivity(), R.color.colorPrimary),
-                ContextCompat.getColor(getActivity(), R.color.colorAccent),
-                ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark)
-        );
-        // Set the scrolling view in the custom SwipeRefreshLayout.
-        swipeRefreshLayout.setScrollUpChild(listView);
-
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mPresenter.loadTasks(false);
-            }
-        });
-
-        setHasOptionsMenu(true);
-
         return root;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_clear:
-                mPresenter.clearCompletedTasks();
-                break;
-            case R.id.menu_filter:
-                showFilteringPopUpMenu();
-                break;
-            case R.id.menu_refresh:
-                mPresenter.loadTasks(true);
-                break;
-        }
-        return true;
-    }
+    public void setLoadingIndicator(boolean active) {
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.tasks_fragment_menu, menu);
-    }
-
-    @Override
-    public void showFilteringPopUpMenu() {
-        PopupMenu popup = new PopupMenu(getContext(), getActivity().findViewById(R.id.menu_filter));
-        popup.getMenuInflater().inflate(R.menu.filter_tasks, popup.getMenu());
-
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.active:
-                        mPresenter.setFiltering(TasksFilterType.ACTIVE_TASKS);
-                        break;
-                    case R.id.completed:
-                        mPresenter.setFiltering(TasksFilterType.COMPLETED_TASKS);
-                        break;
-                    default:
-                        mPresenter.setFiltering(TasksFilterType.ALL_TASKS);
-                        break;
-                }
-                mPresenter.loadTasks(false);
-                return true;
-            }
-        });
-
-        popup.show();
-    }
-
-    /**
-     * Listener for clicks on tasks in the ListView.
-     */
-    TaskItemListener mItemListener = new TaskItemListener() {
-        @Override
-        public void onTaskClick(Task clickedTask) {
-            mPresenter.openTaskDetails(clickedTask);
-        }
-
-        @Override
-        public void onCompleteTaskClick(Task completedTask) {
-            mPresenter.completeTask(completedTask);
-        }
-
-        @Override
-        public void onActivateTaskClick(Task activatedTask) {
-            mPresenter.activateTask(activatedTask);
-        }
-    };
-
-    @Override
-    public void setLoadingIndicator(final boolean active) {
-
-        if (getView() == null) {
-            return;
-        }
-        final SwipeRefreshLayout srl =
-                (SwipeRefreshLayout) getView().findViewById(R.id.refresh_layout);
-
-        // Make sure setRefreshing() is called after the layout is done with everything else.
-        srl.post(new Runnable() {
-            @Override
-            public void run() {
-                srl.setRefreshing(active);
-            }
-        });
     }
 
     @Override
     public void showTasks(List<Task> tasks) {
-        mListAdapter.replaceData(tasks);
-
-        mTasksView.setVisibility(View.VISIBLE);
-        mNoTasksView.setVisibility(View.GONE);
+        //
     }
 
     @Override
@@ -285,27 +164,22 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     }
 
     private void showNoTasksViews(String mainText, int iconRes, boolean showAddView) {
-        mTasksView.setVisibility(View.GONE);
-        mNoTasksView.setVisibility(View.VISIBLE);
-
-        mNoTaskMainView.setText(mainText);
-        mNoTaskIcon.setImageDrawable(getResources().getDrawable(iconRes));
-        mNoTaskAddView.setVisibility(showAddView ? View.VISIBLE : View.GONE);
+        //
     }
 
     @Override
     public void showActiveFilterLabel() {
-        mFilteringLabelView.setText(getResources().getString(R.string.label_active));
+        //
     }
 
     @Override
     public void showCompletedFilterLabel() {
-        mFilteringLabelView.setText(getResources().getString(R.string.label_completed));
+        //
     }
 
     @Override
     public void showAllFilterLabel() {
-        mFilteringLabelView.setText(getResources().getString(R.string.label_all));
+        //
     }
 
     @Override
@@ -316,11 +190,7 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
     @Override
     public void showTaskDetailsUi(String taskId) {
-        // in it's own Activity, since it makes more sense that way and it gives us the flexibility
-        // to show some Intent stubbing.
-        Intent intent = new Intent(getContext(), TaskDetailActivity.class);
-        intent.putExtra(TaskDetailActivity.EXTRA_TASK_ID, taskId);
-        startActivity(intent);
+        //
     }
 
     @Override
@@ -350,6 +220,11 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public boolean isActive() {
         return isAdded();
+    }
+
+    @Override
+    public void showFilteringPopUpMenu() {
+
     }
 
     private static class TasksAdapter extends BaseAdapter {
