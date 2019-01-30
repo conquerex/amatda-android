@@ -40,7 +40,7 @@ public class CarrierMainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
 
-    private TasksPresenter mTasksPresenter;
+    private CarrierMainPresenter mCarrierMainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,7 @@ public class CarrierMainActivity extends AppCompatActivity {
         }
 
         // Create the presenter
-        mTasksPresenter = new TasksPresenter(
+        mCarrierMainPresenter = new CarrierMainPresenter(
                 Injection.provideUseCaseHandler(),
                 carrierMainFragment,
                 Injection.provideGetTasks(getApplicationContext()),
@@ -85,14 +85,12 @@ public class CarrierMainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             TasksFilterType currentFiltering =
                     (TasksFilterType) savedInstanceState.getSerializable(CURRENT_FILTERING_KEY);
-            mTasksPresenter.setFiltering(currentFiltering);
+            //
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable(CURRENT_FILTERING_KEY, mTasksPresenter.getFiltering());
-
         super.onSaveInstanceState(outState);
     }
 
@@ -112,7 +110,7 @@ public class CarrierMainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        mTasksPresenter.getJKStest();
+                        mCarrierMainPresenter.getJKStest();
 
                         switch (menuItem.getItemId()) {
                             case R.id.list_navigation_menu_item:

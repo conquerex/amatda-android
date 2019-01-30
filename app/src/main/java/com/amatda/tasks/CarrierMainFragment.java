@@ -56,20 +56,6 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
     private TasksContract.Presenter mPresenter;
 
-//    private TasksAdapter mListAdapter;
-//
-//    private View mNoTasksView;
-//
-//    private ImageView mNoTaskIcon;
-//
-//    private TextView mNoTaskMainView;
-//
-//    private TextView mNoTaskAddView;
-//
-//    private LinearLayout mTasksView;
-//
-//    private TextView mFilteringLabelView;
-
     public CarrierMainFragment() {
         // Requires empty public constructor
     }
@@ -122,63 +108,11 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     }
 
     @Override
-    public void setLoadingIndicator(boolean active) {
-
-    }
-
-    @Override
     public void showTasks(List<Task> tasks) {
         //
     }
 
-    @Override
-    public void showNoActiveTasks() {
-        showNoTasksViews(
-                getResources().getString(R.string.no_tasks_active),
-                R.drawable.ic_check_circle_24dp,
-                false
-        );
-    }
-
-    @Override
-    public void showNoTasks() {
-        showNoTasksViews(
-                getResources().getString(R.string.no_tasks_all),
-                R.drawable.ic_assignment_turned_in_24dp,
-                false
-        );
-    }
-
-    @Override
-    public void showNoCompletedTasks() {
-        showNoTasksViews(
-                getResources().getString(R.string.no_tasks_completed),
-                R.drawable.ic_verified_user_24dp,
-                false
-        );
-    }
-
-    @Override
-    public void showSuccessfullySavedMessage() {
-        showMessage(getString(R.string.successfully_saved_task_message));
-    }
-
     private void showNoTasksViews(String mainText, int iconRes, boolean showAddView) {
-        //
-    }
-
-    @Override
-    public void showActiveFilterLabel() {
-        //
-    }
-
-    @Override
-    public void showCompletedFilterLabel() {
-        //
-    }
-
-    @Override
-    public void showAllFilterLabel() {
         //
     }
 
@@ -188,123 +122,30 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
         startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);
     }
 
-    @Override
-    public void showTaskDetailsUi(String taskId) {
-        //
-    }
-
-    @Override
-    public void showTaskMarkedComplete() {
-        showMessage(getString(R.string.task_marked_complete));
-    }
-
-    @Override
-    public void showTaskMarkedActive() {
-        showMessage(getString(R.string.task_marked_active));
-    }
-
-    @Override
-    public void showCompletedTasksCleared() {
-        showMessage(getString(R.string.completed_tasks_cleared));
-    }
-
-    @Override
-    public void showLoadingTasksError() {
-        showMessage(getString(R.string.loading_tasks_error));
-    }
-
     private void showMessage(String message) {
         Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
 
-    @Override
-    public boolean isActive() {
-        return isAdded();
-    }
-
-    @Override
-    public void showFilteringPopUpMenu() {
-
-    }
-
-    private static class TasksAdapter extends BaseAdapter {
-
-        private List<Task> mTasks;
-        private TaskItemListener mItemListener;
-
-        public TasksAdapter(List<Task> tasks, TaskItemListener itemListener) {
-            setList(tasks);
-            mItemListener = itemListener;
-        }
-
-        public void replaceData(List<Task> tasks) {
-            setList(tasks);
-            notifyDataSetChanged();
-        }
-
-        private void setList(List<Task> tasks) {
-            mTasks = checkNotNull(tasks);
-        }
+    private class TasksAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
-            return mTasks.size();
+            return 0;
         }
 
         @Override
-        public Task getItem(int i) {
-            return mTasks.get(i);
+        public Object getItem(int i) {
+            return null;
         }
 
         @Override
         public long getItemId(int i) {
-            return i;
+            return 0;
         }
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            View rowView = view;
-            if (rowView == null) {
-                LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-                rowView = inflater.inflate(R.layout.task_item, viewGroup, false);
-            }
-
-            final Task task = getItem(i);
-
-            TextView titleTV = (TextView) rowView.findViewById(R.id.title);
-            titleTV.setText(task.getTitleForList());
-
-            CheckBox completeCB = (CheckBox) rowView.findViewById(R.id.complete);
-
-            // Active/completed task UI
-            completeCB.setChecked(task.isCompleted());
-            if (task.isCompleted()) {
-                rowView.setBackgroundDrawable(viewGroup.getContext()
-                        .getResources().getDrawable(R.drawable.list_completed_touch_feedback));
-            } else {
-                rowView.setBackgroundDrawable(viewGroup.getContext()
-                        .getResources().getDrawable(R.drawable.touch_feedback));
-            }
-
-            completeCB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (!task.isCompleted()) {
-                        mItemListener.onCompleteTaskClick(task);
-                    } else {
-                        mItemListener.onActivateTaskClick(task);
-                    }
-                }
-            });
-
-            rowView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mItemListener.onTaskClick(task);
-                }
-            });
-
-            return rowView;
+            return null;
         }
     }
 
