@@ -16,15 +16,12 @@
 
 package com.amatda.tasks;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-
 import android.app.Activity;
 import android.support.annotation.NonNull;
 
 import com.amatda.UseCase;
 import com.amatda.UseCaseHandler;
 import com.amatda.addedittask.AddEditTaskActivity;
-import com.amatda.tasks.domain.model.Task;
 import com.amatda.data.source.TasksDataSource;
 import com.amatda.tasks.domain.usecase.ActivateTask;
 import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
@@ -33,11 +30,11 @@ import com.amatda.tasks.domain.usecase.GetTasks;
 import com.amatda.util.ApiInterface;
 import com.amatda.util.NetworkSetting;
 
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Listens to user actions from the UI ({@link CarrierMainFragment}), retrieves the data and updates the
@@ -47,9 +44,6 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
 
     private final TasksContract.View mTasksView;
     private final GetTasks mGetTasks;
-    private final CompleteTask mCompleteTask;
-    private final ActivateTask mActivateTask;
-    private final ClearCompleteTasks mClearCompleteTasks;
 
     private TasksFilterType mCurrentFiltering = TasksFilterType.ALL_TASKS;
 
@@ -65,11 +59,6 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
         mUseCaseHandler = checkNotNull(useCaseHandler, "usecaseHandler cannot be null");
         mTasksView = checkNotNull(tasksView, "tasksView cannot be null!");
         mGetTasks = checkNotNull(getTasks, "getTask cannot be null!");
-        mCompleteTask = checkNotNull(completeTask, "completeTask cannot be null!");
-        mActivateTask = checkNotNull(activateTask, "activateTask cannot be null!");
-        mClearCompleteTasks = checkNotNull(clearCompleteTasks,
-                "clearCompleteTasks cannot be null!");
-
 
         mTasksView.setPresenter(this);
     }

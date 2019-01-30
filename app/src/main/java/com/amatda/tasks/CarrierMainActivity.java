@@ -23,20 +23,16 @@ import android.support.design.widget.NavigationView;
 import android.support.test.espresso.IdlingResource;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.amatda.Injection;
 import com.amatda.R;
 import com.amatda.statistics.StatisticsActivity;
 import com.amatda.util.ActivityUtils;
 import com.amatda.util.EspressoIdlingResource;
-import com.amatda.Injection;
 
 public class CarrierMainActivity extends AppCompatActivity {
-
-    private static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
 
     private DrawerLayout mDrawerLayout;
 
@@ -47,13 +43,6 @@ public class CarrierMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrier_main);
 
-        // Set up the toolbar.
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
-        ab.setDisplayHomeAsUpEnabled(true);
-
         // Set up the navigation drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerLayout.setStatusBarBackground(R.color.colorPrimaryDark);
@@ -63,12 +52,12 @@ public class CarrierMainActivity extends AppCompatActivity {
         }
 
         CarrierMainFragment carrierMainFragment =
-                (CarrierMainFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+                (CarrierMainFragment) getSupportFragmentManager().findFragmentById(R.id.layoutCarrierMain);
         if (carrierMainFragment == null) {
             // Create the fragment
             carrierMainFragment = CarrierMainFragment.newInstance();
             ActivityUtils.addFragmentToActivity(
-                    getSupportFragmentManager(), carrierMainFragment, R.id.contentFrame);
+                    getSupportFragmentManager(), carrierMainFragment, R.id.layoutCarrierMain);
         }
 
         // Create the presenter
@@ -80,13 +69,6 @@ public class CarrierMainActivity extends AppCompatActivity {
                 Injection.provideActivateTask(getApplicationContext()),
                 Injection.provideClearCompleteTasks(getApplicationContext())
                 );
-
-        // Load previously saved state, if available.
-        if (savedInstanceState != null) {
-            TasksFilterType currentFiltering =
-                    (TasksFilterType) savedInstanceState.getSerializable(CURRENT_FILTERING_KEY);
-            //
-        }
     }
 
     @Override
