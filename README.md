@@ -14,5 +14,7 @@
 ```
 
 AMATDA : https://medium.com/amatda
+
 Server : https://github.com/Nexters/amatda-spring
+
 iOS : https://github.com/Nexters/Amatda-iOS
