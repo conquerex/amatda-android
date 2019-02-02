@@ -76,10 +76,8 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_carrier_main, container, false);
 
-
         // Set up floating action button
-        FloatingActionButton fab =
-                (FloatingActionButton) getActivity().findViewById(R.id.fab_add_task);
+        FloatingActionButton fab = getActivity().findViewById(R.id.fab_add_task);
 
         fab.setImageResource(R.drawable.ic_add);
         fab.setOnClickListener(new View.OnClickListener() {
