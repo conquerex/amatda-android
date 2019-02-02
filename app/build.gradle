@@ -31,16 +31,16 @@ android {
         }
     }
 
-    flavorDimensions "default"
+    flavorDimensions "debug"
 
     // If you need to add more flavors, consider using flavor dimensions.
     productFlavors {
         mock {
-            dimension "default"
+            dimension "debug"
             applicationIdSuffix = ".mock"
         }
         prod {
-            dimension "default"
+            dimension "debug"
         }
     }
 
@@ -58,6 +58,10 @@ android {
             events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
         }
     }
+}
+
+configurations {
+    mockImplementation {}
 }
 
 /*
@@ -114,4 +118,5 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.converterGsonVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+    mockImplementation "com.squareup.okhttp3:mockwebserver:$rootProject.okhttpVersion"
 }
