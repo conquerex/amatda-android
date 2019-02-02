@@ -16,17 +16,13 @@
 
 package com.amatda.tasks;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
-import android.support.design.widget.NavigationView;
 import android.support.test.espresso.IdlingResource;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 
 import com.amatda.Injection;
 import com.amatda.R;
-import com.amatda.statistics.StatisticsActivity;
 import com.amatda.util.ActivityUtils;
 import com.amatda.util.EspressoIdlingResource;
 

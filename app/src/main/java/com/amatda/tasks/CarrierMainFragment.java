@@ -21,12 +21,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
 import com.amatda.R;
 import com.amatda.addedittask.AddEditTaskActivity;
@@ -99,50 +97,9 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
         //
     }
 
-    private void showNoTasksViews(String mainText, int iconRes, boolean showAddView) {
-        //
-    }
-
     @Override
     public void showAddTask() {
         Intent intent = new Intent(getContext(), AddEditTaskActivity.class);
         startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);
     }
-
-    private void showMessage(String message) {
-        Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
-    }
-
-    private class TasksAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            return null;
-        }
-    }
-
-    public interface TaskItemListener {
-
-        void onTaskClick(Task clickedTask);
-
-        void onCompleteTaskClick(Task completedTask);
-
-        void onActivateTaskClick(Task activatedTask);
-    }
-
 }
