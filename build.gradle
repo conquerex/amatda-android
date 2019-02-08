@@ -46,5 +46,6 @@ ext {
     retrofitVersion = "2.5.0"
     gsonVersion = "2.8.5"
     converterGsonVersion = "2.5.0"
-    converterOkhttp = "3.12.1"
+    okhttpVersion = "3.12.1"
+    constraintVersion = "1.1.2"
 }
