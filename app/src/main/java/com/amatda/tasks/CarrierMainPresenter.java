@@ -18,6 +18,7 @@ package com.amatda.tasks;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.amatda.UseCase;
 import com.amatda.UseCaseHandler;
@@ -31,8 +32,6 @@ import com.amatda.tasks.domain.usecase.CompleteTask;
 import com.amatda.tasks.domain.usecase.GetTasks;
 import com.amatda.util.ApiInterface;
 import com.amatda.util.NetworkSetting;
-
-import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -104,6 +103,11 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
                 realm.copyToRealm(data);
             }
             realm.commitTransaction();
+        }
+
+        RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
+        for (MockPreparationData data : realmResults) {
+            Log.d("CarrierMainPresenter", " * * * realm : " + data.toString());
         }
 
         loadTasks(false);

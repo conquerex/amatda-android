@@ -51,4 +51,15 @@ public class MockPreparationData extends RealmObject {
     public void setCreateDate(long createDate) {
         this.createDate = createDate;
     }
+
+    @Override
+    public String toString() {
+        return "MockPreparationData{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", options=" + options +
+                ", isRecommend=" + isRecommend +
+                ", createDate=" + createDate +
+                '}';
+    }
 }
