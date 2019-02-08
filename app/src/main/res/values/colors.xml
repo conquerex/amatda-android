@@ -26,4 +26,6 @@
     <color name="gray">#999999</color>
     <color name="black">#333333</color>
 
+    <color name="sample_yellow">#fff600</color>
+
 </resources>

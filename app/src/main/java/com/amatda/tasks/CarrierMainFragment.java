@@ -22,15 +22,23 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.amatda.R;
 import com.amatda.addedittask.AddEditTaskActivity;
+import com.amatda.data.MockPreparationData;
 import com.amatda.tasks.domain.model.Task;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -40,6 +48,11 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class CarrierMainFragment extends Fragment implements TasksContract.View {
 
     private TasksContract.Presenter mPresenter;
+    private PreparationBeforeListAdapter mBeforeListAdapter;
+    private ArrayList<MockPreparationData> mDatas;
+
+    FloatingActionButton fabCarrierAddPreparation;
+    RecyclerView recyclerCarrierMainBeforeList;
 
     public CarrierMainFragment() {
         // Requires empty public constructor
@@ -52,12 +65,16 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPresenter.start();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.start();
+        RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
+        for (MockPreparationData data : realmResults) {
+            mDatas.add(data);
+        }
     }
 
     @Override
@@ -74,20 +91,29 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_carrier_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_carrier_main, container, false);
 
         // Set up floating action button
-        FloatingActionButton fab = getActivity().findViewById(R.id.fab_add_task);
+        fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
 
-        fab.setImageResource(R.drawable.ic_add);
-        fab.setOnClickListener(new View.OnClickListener() {
+        recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
+
+        fabCarrierAddPreparation.setImageResource(R.drawable.ic_add);
+        fabCarrierAddPreparation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.addNewTask();
             }
         });
 
-        return root;
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        mBeforeListAdapter = new PreparationBeforeListAdapter();
+        recyclerCarrierMainBeforeList.setAdapter(mBeforeListAdapter);
+        recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
+        mBeforeListAdapter.notifyDataSetChanged();
+
+        return view;
     }
 
     @Override
@@ -99,5 +125,25 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     public void showAddTask() {
         Intent intent = new Intent(getContext(), AddEditTaskActivity.class);
         startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);
+    }
+
+    private class PreparationBeforeListAdapter extends RecyclerView.Adapter<PreparationViewHolder> {
+
+        @Override
+        public PreparationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_preparation, parent, false);
+            PreparationViewHolder viewHolder = new PreparationViewHolder(view);
+            return viewHolder;
+        }
+
+        @Override
+        public void onBindViewHolder(PreparationViewHolder holder, int position) {
+            //
+        }
+
+        @Override
+        public int getItemCount() {
+            return 0;
+        }
     }
 }

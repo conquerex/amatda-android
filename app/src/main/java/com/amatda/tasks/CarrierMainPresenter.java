@@ -105,11 +105,6 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
             realm.commitTransaction();
         }
 
-        RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
-        for (MockPreparationData data : realmResults) {
-            Log.d("CarrierMainPresenter", " * * * realm : " + data.toString());
-        }
-
         loadTasks(false);
     }
 
