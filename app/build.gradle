@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId "com.amatda"
@@ -42,6 +42,12 @@ android {
         prod {
             dimension "default"
         }
+    }
+
+    buildToolsVersion '28.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     // Remove mockRelease as it's not needed.
@@ -113,4 +119,5 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.converterGsonVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.converterOkhttp"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.converterOkhttp"
+
 }
