@@ -22,6 +22,8 @@ import android.support.annotation.NonNull;
 import com.amatda.UseCase;
 import com.amatda.UseCaseHandler;
 import com.amatda.addedittask.AddEditTaskActivity;
+import com.amatda.data.MockOptionData;
+import com.amatda.data.MockPreparationData;
 import com.amatda.data.source.TasksDataSource;
 import com.amatda.tasks.domain.usecase.ActivateTask;
 import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
@@ -33,6 +35,7 @@ import com.amatda.util.NetworkSetting;
 import java.util.ArrayList;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -87,7 +90,6 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
     @Override
     public void start() {
         realm = Realm.getDefaultInstance();
-/*
         RealmResults<MockPreparationData> results = realm.where(MockPreparationData.class).findAll();
         if (results.isEmpty()) {
             realm.beginTransaction();
@@ -96,15 +98,13 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
                 data.setId(i);
                 data.setCreateDate(System.currentTimeMillis());
                 data.setName("준비물 " + i);
-                ArrayList<String> options = new ArrayList<>();
-                options.add("옵션" + i);
-                options.add("옵션" + (i+1));
-                data.setOptions(options);
+                MockOptionData optionData = new MockOptionData();
+                optionData.setOption("Option" + i);
                 data.setRecommend(i / 2 == 0);
                 realm.copyToRealm(data);
             }
             realm.commitTransaction();
-        }*/
+        }
 
         loadTasks(false);
     }

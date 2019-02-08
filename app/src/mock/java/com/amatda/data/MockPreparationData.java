@@ -1,7 +1,6 @@
 package com.amatda.data;
 
-import java.util.ArrayList;
-
+import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -9,7 +8,7 @@ public class MockPreparationData extends RealmObject {
     @PrimaryKey
     private int id;
     private String name;
-    private ArrayList<String> options;
+    private RealmList<MockOptionData> options;
     private boolean isRecommend;
     private long createDate;
 
@@ -29,11 +28,11 @@ public class MockPreparationData extends RealmObject {
         this.name = name;
     }
 
-    public ArrayList<String> getOptions() {
+    public RealmList<MockOptionData> getOptions() {
         return options;
     }
 
-    public void setOptions(ArrayList<String> options) {
+    public void setOptions(RealmList<MockOptionData> options) {
         this.options = options;
     }
 
