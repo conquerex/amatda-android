@@ -14,26 +14,25 @@
  * limitations under the License.
  */
 
-package com.example.android.architecture.blueprints.todoapp;
+package com.amatda;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.DeleteTask;
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.GetTask;
-import com.example.android.architecture.blueprints.todoapp.addedittask.domain.usecase.SaveTask;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
-import com.example.android.architecture.blueprints.todoapp.data.source.local.TasksLocalDataSource;
-import com.example.android.architecture.blueprints.todoapp.data.source.local.ToDoDatabase;
-import com.example.android.architecture.blueprints.todoapp.data.source.remote.TasksRemoteDataSource;
-import com.example.android.architecture.blueprints.todoapp.statistics.domain.usecase.GetStatistics;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.filter.FilterFactory;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.ActivateTask;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.ClearCompleteTasks;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.CompleteTask;
-import com.example.android.architecture.blueprints.todoapp.tasks.domain.usecase.GetTasks;
-import com.example.android.architecture.blueprints.todoapp.util.AppExecutors;
+import com.amatda.addedittask.domain.usecase.DeleteTask;
+import com.amatda.addedittask.domain.usecase.GetTask;
+import com.amatda.addedittask.domain.usecase.SaveTask;
+import com.amatda.data.source.TasksRepository;
+import com.amatda.data.source.local.TasksLocalDataSource;
+import com.amatda.data.source.local.ToDoDatabase;
+import com.amatda.data.source.remote.TasksRemoteDataSource;
+import com.amatda.statistics.domain.usecase.GetStatistics;
+import com.amatda.tasks.domain.filter.FilterFactory;
+import com.amatda.tasks.domain.usecase.ActivateTask;
+import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
+import com.amatda.tasks.domain.usecase.CompleteTask;
+import com.amatda.tasks.domain.usecase.GetTasks;
+import com.amatda.util.AppExecutors;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

@@ -44,7 +44,7 @@ import static com.amatda.TestUtils.getToolbarNavigationContentDescription;
 import static junit.framework.Assert.fail;
 
 /**
- * Tests for the {@link DrawerLayout} layout component in {@link TasksActivity} which manages
+ * Tests for the {@link DrawerLayout} layout component in {@link CarrierMainActivity} which manages
  * navigation within the app.
  */
 @RunWith(AndroidJUnit4.class)
@@ -59,8 +59,8 @@ public class AppNavigationTest {
      * blocks of Junit tests.
      */
     @Rule
-    public ActivityTestRule<TasksActivity> mActivityTestRule =
-            new ActivityTestRule<>(TasksActivity.class);
+    public ActivityTestRule<CarrierMainActivity> mActivityTestRule =
+            new ActivityTestRule<>(CarrierMainActivity.class);
 
     @Test
     public void clickOnStatisticsNavigationItem_ShowsStatisticsScreen() {
@@ -114,7 +114,7 @@ public class AppNavigationTest {
 
     @Test
     public void backFromTasksScreenAfterStats_ExitsApp() {
-        // This test checks that TasksActivity is a parent of StatisticsActivity
+        // This test checks that CarrierMainActivity is a parent of StatisticsActivity
 
         // Open the stats screen
         openStatisticsScreen();

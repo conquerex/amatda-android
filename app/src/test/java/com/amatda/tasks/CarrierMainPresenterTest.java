@@ -46,9 +46,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 /**
- * Unit tests for the implementation of {@link TasksPresenter}
+ * Unit tests for the implementation of {@link CarrierMainPresenter}
  */
-public class TasksPresenterTest {
+public class CarrierMainPresenterTest {
 
     private static List<Task> TASKS;
 
@@ -65,7 +65,7 @@ public class TasksPresenterTest {
     @Captor
     private ArgumentCaptor<LoadTasksCallback> mLoadTasksCallbackCaptor;
 
-    private TasksPresenter mTasksPresenter;
+    private CarrierMainPresenter mCarrierMainPresenter;
 
     @Before
     public void setupTasksPresenter() {
@@ -74,7 +74,7 @@ public class TasksPresenterTest {
         MockitoAnnotations.initMocks(this);
 
         // Get a reference to the class under test
-        mTasksPresenter = givenTasksPresenter();
+        mCarrierMainPresenter = givenTasksPresenter();
 
         // The presenter won't update the view unless it's active.
         when(mTasksView.isActive()).thenReturn(true);
@@ -84,32 +84,32 @@ public class TasksPresenterTest {
                 new Task("Title2", "Description2", true), new Task("Title3", "Description3", true));
     }
 
-    private TasksPresenter givenTasksPresenter() {
+    private CarrierMainPresenter givenTasksPresenter() {
         UseCaseHandler useCaseHandler = new UseCaseHandler(new TestUseCaseScheduler());
         GetTasks getTasks = new GetTasks(mTasksRepository, new FilterFactory());
         CompleteTask completeTask = new CompleteTask(mTasksRepository);
         ActivateTask activateTask = new ActivateTask(mTasksRepository);
         ClearCompleteTasks clearCompleteTasks = new ClearCompleteTasks(mTasksRepository);
 
-        return new TasksPresenter(useCaseHandler, mTasksView, getTasks, completeTask, activateTask,
+        return new CarrierMainPresenter(useCaseHandler, mTasksView, getTasks, completeTask, activateTask,
                 clearCompleteTasks);
     }
 
     @Test
     public void createPresenter_setsThePresenterToView() {
         // Get a reference to the class under test
-        mTasksPresenter = givenTasksPresenter();
+        mCarrierMainPresenter = givenTasksPresenter();
 
         // Then the presenter is set to the view
-        verify(mTasksView).setPresenter(mTasksPresenter);
+        verify(mTasksView).setPresenter(mCarrierMainPresenter);
     }
 
     @Test
     public void loadAllTasksFromRepositoryAndLoadIntoView() {
-        // Given an initialized TasksPresenter with initialized tasks
+        // Given an initialized CarrierMainPresenter with initialized tasks
         // When loading of Tasks is requested
-        mTasksPresenter.setFiltering(TasksFilterType.ALL_TASKS);
-        mTasksPresenter.loadTasks(true);
+        mCarrierMainPresenter.setFiltering(TasksFilterType.ALL_TASKS);
+        mCarrierMainPresenter.loadTasks(true);
 
         // Callback is captured and invoked with stubbed tasks
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
@@ -127,10 +127,10 @@ public class TasksPresenterTest {
 
     @Test
     public void loadActiveTasksFromRepositoryAndLoadIntoView() {
-        // Given an initialized TasksPresenter with initialized tasks
+        // Given an initialized CarrierMainPresenter with initialized tasks
         // When loading of Tasks is requested
-        mTasksPresenter.setFiltering(TasksFilterType.ACTIVE_TASKS);
-        mTasksPresenter.loadTasks(true);
+        mCarrierMainPresenter.setFiltering(TasksFilterType.ACTIVE_TASKS);
+        mCarrierMainPresenter.loadTasks(true);
 
         // Callback is captured and invoked with stubbed tasks
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
@@ -145,10 +145,10 @@ public class TasksPresenterTest {
 
     @Test
     public void loadCompletedTasksFromRepositoryAndLoadIntoView() {
-        // Given an initialized TasksPresenter with initialized tasks
+        // Given an initialized CarrierMainPresenter with initialized tasks
         // When loading of Tasks is requested
-        mTasksPresenter.setFiltering(TasksFilterType.COMPLETED_TASKS);
-        mTasksPresenter.loadTasks(true);
+        mCarrierMainPresenter.setFiltering(TasksFilterType.COMPLETED_TASKS);
+        mCarrierMainPresenter.loadTasks(true);
 
         // Callback is captured and invoked with stubbed tasks
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
@@ -164,7 +164,7 @@ public class TasksPresenterTest {
     @Test
     public void clickOnFab_ShowsAddTaskUi() {
         // When adding a new task
-        mTasksPresenter.addNewTask();
+        mCarrierMainPresenter.addNewTask();
 
         // Then add task UI is shown
         verify(mTasksView).showAddTask();
@@ -176,7 +176,7 @@ public class TasksPresenterTest {
         Task requestedTask = new Task("Details Requested", "For this task");
 
         // When open task details is requested
-        mTasksPresenter.openTaskDetails(requestedTask);
+        mCarrierMainPresenter.openTaskDetails(requestedTask);
 
         // Then task detail UI is shown
         verify(mTasksView).showTaskDetailsUi(any(String.class));
@@ -188,7 +188,7 @@ public class TasksPresenterTest {
         Task task = new Task("Details Requested", "For this task");
 
         // When task is marked as complete
-        mTasksPresenter.completeTask(task);
+        mCarrierMainPresenter.completeTask(task);
 
         // Then repository is called and task marked complete UI is shown
         verify(mTasksRepository).completeTask(eq(task.getId()));
@@ -199,10 +199,10 @@ public class TasksPresenterTest {
     public void activateTask_ShowsTaskMarkedActive() {
         // Given a stubbed completed task
         Task task = new Task("Details Requested", "For this task", true);
-        mTasksPresenter.loadTasks(true);
+        mCarrierMainPresenter.loadTasks(true);
 
         // When task is marked as activated
-        mTasksPresenter.activateTask(task);
+        mCarrierMainPresenter.activateTask(task);
 
         // Then repository is called and task marked active UI is shown
         verify(mTasksRepository).activateTask(eq(task.getId()));
@@ -212,8 +212,8 @@ public class TasksPresenterTest {
     @Test
     public void unavailableTasks_ShowsError() {
         // When tasks are loaded
-        mTasksPresenter.setFiltering(TasksFilterType.ALL_TASKS);
-        mTasksPresenter.loadTasks(true);
+        mCarrierMainPresenter.setFiltering(TasksFilterType.ALL_TASKS);
+        mCarrierMainPresenter.loadTasks(true);
 
         // And the tasks aren't available in the repository
         verify(mTasksRepository).getTasks(mLoadTasksCallbackCaptor.capture());
