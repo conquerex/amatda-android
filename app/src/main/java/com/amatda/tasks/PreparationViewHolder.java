@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.amatda.R;
+import com.amatda.data.MockPreparationData;
 
 public class PreparationViewHolder extends RecyclerView.ViewHolder {
 
@@ -14,5 +15,9 @@ public class PreparationViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         textPreparation = itemView.findViewById(R.id.textPreparation);
+    }
+
+    public void setData(MockPreparationData data) {
+        textPreparation.setText(data.getName());
     }
 }

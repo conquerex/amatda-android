@@ -65,6 +65,7 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDatas = new ArrayList<>();
         mPresenter.start();
     }
 
@@ -138,12 +139,12 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
         @Override
         public void onBindViewHolder(PreparationViewHolder holder, int position) {
-            //
+            holder.setData(mDatas.get(position));
         }
 
         @Override
         public int getItemCount() {
-            return 0;
+            return mDatas.size();
         }
     }
 }
