@@ -49,7 +49,9 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
     private TasksContract.Presenter mPresenter;
     private PreparationBeforeListAdapter mBeforeListAdapter;
-    private ArrayList<MockPreparationData> mDatas;
+    private PreparationBeforeListAdapter mAfterListAdapter;
+    private ArrayList<MockPreparationData> mBeforeDatas;
+    private ArrayList<MockPreparationData> mAfterDatas;
 
     FloatingActionButton fabCarrierAddPreparation;
     RecyclerView recyclerCarrierMainBeforeList;
@@ -65,7 +67,8 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDatas = new ArrayList<>();
+        mBeforeDatas = new ArrayList<>();
+        mAfterDatas = new ArrayList<>();
         mPresenter.start();
     }
 
@@ -74,7 +77,7 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
         super.onResume();
         RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
         for (MockPreparationData data : realmResults) {
-            mDatas.add(data);
+            mBeforeDatas.add(data);
         }
     }
 
@@ -109,10 +112,17 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
+        // Uncheck list
         mBeforeListAdapter = new PreparationBeforeListAdapter();
         recyclerCarrierMainBeforeList.setAdapter(mBeforeListAdapter);
         recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
         mBeforeListAdapter.notifyDataSetChanged();
+
+        // Checked list
+        mAfterListAdapter = new PreparationBeforeListAdapter();
+        recyclerCarrierMainBeforeList.setAdapter(mAfterListAdapter);
+        recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
+        mAfterListAdapter.notifyDataSetChanged();
 
         return view;
     }
@@ -139,12 +149,32 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
 
         @Override
         public void onBindViewHolder(PreparationViewHolder holder, int position) {
-            holder.setData(mDatas.get(position));
+            holder.setData(mBeforeDatas.get(position));
         }
 
         @Override
         public int getItemCount() {
-            return mDatas.size();
+            return mBeforeDatas.size();
+        }
+    }
+
+    private class PreparationAfterListAdapter extends RecyclerView.Adapter<PreparationViewHolder> {
+
+        @Override
+        public PreparationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.item_preparation, parent, false);
+            PreparationViewHolder viewHolder = new PreparationViewHolder(view);
+            return viewHolder;
+        }
+
+        @Override
+        public void onBindViewHolder(PreparationViewHolder holder, int position) {
+            holder.setData(mAfterDatas.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return mAfterDatas.size();
         }
     }
 }
