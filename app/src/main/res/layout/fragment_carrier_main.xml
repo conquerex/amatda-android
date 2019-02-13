@@ -90,14 +90,33 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/layoutCarrierMainMenu"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:orientation="horizontal"
             android:background="@color/sample_yellow">
 
-            <!-- Menu icon and more icon -->
+            <ImageView
+                android:id="@+id/imageCarrierMainMenu"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_menu" />
 
-        </android.support.constraint.ConstraintLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imageCarrierMainMore"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/menu" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -110,6 +129,12 @@
         android:orientation="vertical"
         app:behavior_hideable="true"
         app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_assignment_turned_in_24dp"/>
 
     </LinearLayout>
 

@@ -14,6 +14,12 @@ android {
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
+    sourceSets {
+        main {
+            res.srcDirs = ['src/main/res', 'src/main/res-amatda']
+        }
+    }
+
     buildTypes {
         debug {
             minifyEnabled true
