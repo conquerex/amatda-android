@@ -91,6 +91,8 @@ dependencies {
     implementation "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
     implementation "com.google.guava:guava:$rootProject.guavaVersion"
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:26.1.0'
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
 
     // Dependencies for local unit tests

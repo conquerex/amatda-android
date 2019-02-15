@@ -138,6 +138,7 @@
         app:layout_behavior="@string/bottom_sheet_behavior">
 
         <ImageView
+            android:id="@+id/imageCarrierMainSample"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"

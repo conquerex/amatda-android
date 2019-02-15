@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.amatda.R;
+import com.amatda.addcarrier.AddCarrierActivity;
 import com.amatda.addedittask.AddEditTaskActivity;
 import com.amatda.data.MockPreparationData;
 import com.amatda.tasks.domain.model.Task;
@@ -63,6 +64,7 @@ public class CarrierMainFragment extends Fragment
     private ImageView imageCarrierMainMenu;
     private ImageView imageCarrierMainSetting;
     private View viewCarrierMainCancelScreen;
+    private ImageView imageCarrierMainSample;
 
     public CarrierMainFragment() {
         // Requires empty public constructor
@@ -110,10 +112,12 @@ public class CarrierMainFragment extends Fragment
         imageCarrierMainSetting = view.findViewById(R.id.imageCarrierMainSetting);
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
         viewCarrierMainCancelScreen = view.findViewById(R.id.viewCarrierMainCancelScreen);
+        imageCarrierMainSample = view.findViewById(R.id.imageCarrierMainSample);
 
         imageCarrierMainMenu.setOnClickListener(this);
         imageCarrierMainSetting.setOnClickListener(this);
         viewCarrierMainCancelScreen.setOnClickListener(this);
+        imageCarrierMainSample.setOnClickListener(this);
 
         // Set up floating action button
         fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
@@ -190,6 +194,9 @@ public class CarrierMainFragment extends Fragment
             case R.id.viewCarrierMainCancelScreen:
                 viewCarrierMainCancelScreen.setVisibility(View.GONE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                break;
+            case R.id.imageCarrierMainSample:
+                AddCarrierActivity.startAddCarrierActivity(getContext());
                 break;
             default:
                 break;
