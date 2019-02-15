@@ -14,70 +14,137 @@
   ~ limitations under the License.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/refresh_layout"
+<android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
+        android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/layoutCarrierMainBefore"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutCarrierMainBefore"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="#1Aff5400">
+
+                <TextView
+                    android:id="@+id/textCarrierMainBefore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="아직 챙기지 않았어요!"
+                    android:textSize="13dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerCarrierMainBeforeList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutCarrierMainBefore"/>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutCarrierMainAfter"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="#1Aff5400">
+
+                <TextView
+                    android:id="@+id/textCarrierMainAfter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="잊지 않고 챙겼어요!"
+                    android:textSize="13dp"
+                    android:layout_marginLeft="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerCarrierMainAfterList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutCarrierMainAfter"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/layoutCarrierMainMenu"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:background="#1Aff5400">
+            android:orientation="horizontal"
+            android:background="@color/sample_yellow">
 
-            <TextView
-                android:id="@+id/textCarrierMainBefore"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/imageCarrierMainMenu"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="아직 챙기지 않았어요!"
-                android:textSize="13dp"
-                android:layout_marginLeft="20dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_carrier_menu" />
 
-        </android.support.constraint.ConstraintLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerCarrierMainBeforeList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutCarrierMainBefore"/>
-
-        <android.support.constraint.ConstraintLayout
-            android:id="@+id/layoutCarrierMainAfter"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
-            android:background="#1Aff5400">
-
-            <TextView
-                android:id="@+id/textCarrierMainAfter"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/imageCarrierMainSetting"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:text="잊지 않고 챙겼어요!"
-                android:textSize="13dp"
-                android:layout_marginLeft="20dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_carrier_setting" />
 
-        </android.support.constraint.ConstraintLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerCarrierMainAfterList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/layoutCarrierMainAfter"/>
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+    <View
+        android:id="@+id/viewCarrierMainCancelScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_t65"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/layoutCarrierMainBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_sheet"
+        android:elevation="16dp"
+        android:orientation="vertical"
+        app:behavior_hideable="true"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:id="@+id/imageCarrierMainSample"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_assignment_turned_in_24dp"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+

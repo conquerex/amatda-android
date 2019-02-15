@@ -27,7 +27,6 @@ import com.amatda.data.source.TasksDataSource;
 import com.amatda.data.source.TasksRepository;
 import com.amatda.data.source.local.TasksLocalDataSource;
 import com.amatda.data.source.local.ToDoDatabase;
-import com.amatda.statistics.domain.usecase.GetStatistics;
 import com.amatda.tasks.domain.filter.FilterFactory;
 import com.amatda.tasks.domain.usecase.ActivateTask;
 import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
@@ -84,7 +83,7 @@ public class Injection {
         return new DeleteTask(Injection.provideTasksRepository(context));
     }
 
-    public static GetStatistics provideGetStatistics(@NonNull Context context) {
-        return new GetStatistics(Injection.provideTasksRepository(context));
-    }
+//    public static GetStatistics provideGetStatistics(@NonNull Context context) {
+//        return new GetStatistics(Injection.provideTasksRepository(context));
+//    }
 }

@@ -89,6 +89,7 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
     @Override
     public void start() {
         realm = Realm.getDefaultInstance();
+        // Todo : where 조건이 필요
         RealmResults<MockPreparationData> results = realm.where(MockPreparationData.class).findAll();
         if (results.isEmpty()) {
             realm.beginTransaction();
@@ -103,11 +104,6 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
                 realm.copyToRealm(data);
             }
             realm.commitTransaction();
-        }
-
-        RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
-        for (MockPreparationData data : realmResults) {
-            Log.d("CarrierMainPresenter", " * * * realm : " + data.toString());
         }
 
         loadTasks(false);

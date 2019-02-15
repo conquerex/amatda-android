@@ -82,7 +82,7 @@ public class Injection {
         return new DeleteTask(Injection.provideTasksRepository(context));
     }
 
-    public static GetStatistics provideGetStatistics(Context context) {
-        return new GetStatistics(Injection.provideTasksRepository(context));
-    }
+//    public static GetStatistics provideGetStatistics(Context context) {
+//        return new GetStatistics(Injection.provideTasksRepository(context));
+//    }
 }
