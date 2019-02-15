@@ -24,6 +24,7 @@
     <drawable name="touchFeedback">#CFD8DC</drawable>
 
     <color name="gray">#999999</color>
+    <color name="black_t65">#a6333333</color>
     <color name="black">#333333</color>
     <color name="white">#ffffff</color>
 

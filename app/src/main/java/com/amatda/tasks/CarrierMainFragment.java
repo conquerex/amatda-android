@@ -25,7 +25,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +62,7 @@ public class CarrierMainFragment extends Fragment
     private RecyclerView recyclerCarrierMainBeforeList;
     private ImageView imageCarrierMainMenu;
     private ImageView imageCarrierMainSetting;
+    private View viewCarrierMainCancelScreen;
 
     public CarrierMainFragment() {
         // Requires empty public constructor
@@ -109,9 +109,11 @@ public class CarrierMainFragment extends Fragment
         imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
         imageCarrierMainSetting = view.findViewById(R.id.imageCarrierMainSetting);
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
+        viewCarrierMainCancelScreen = view.findViewById(R.id.viewCarrierMainCancelScreen);
 
         imageCarrierMainMenu.setOnClickListener(this);
         imageCarrierMainSetting.setOnClickListener(this);
+        viewCarrierMainCancelScreen.setOnClickListener(this);
 
         // Set up floating action button
         fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
@@ -178,10 +180,16 @@ public class CarrierMainFragment extends Fragment
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imageCarrierMainMenu:
+                viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
             case R.id.imageCarrierMainSetting:
+                viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                break;
+            case R.id.viewCarrierMainCancelScreen:
+                viewCarrierMainCancelScreen.setVisibility(View.GONE);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 break;
             default:
                 break;
