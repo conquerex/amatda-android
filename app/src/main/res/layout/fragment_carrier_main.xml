@@ -102,7 +102,7 @@
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_menu" />
+                android:src="@drawable/ic_carrier_menu" />
 
             <View
                 android:layout_width="0dp"
@@ -110,18 +110,18 @@
                 android:layout_weight="1" />
 
             <ImageView
-                android:id="@+id/imageCarrierMainMore"
+                android:id="@+id/imageCarrierMainSetting"
                 android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:src="@drawable/menu" />
+                android:src="@drawable/ic_carrier_setting" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutTalkListBottomSheet"
+        android:id="@+id/layoutCarrierMainBottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_bottom_sheet"

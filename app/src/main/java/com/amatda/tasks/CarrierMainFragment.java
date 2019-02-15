@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +29,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.amatda.R;
 import com.amatda.addedittask.AddEditTaskActivity;
@@ -45,16 +48,21 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Display a grid of {@link Task}s. User can choose to view all, active or completed tasks.
  */
-public class CarrierMainFragment extends Fragment implements TasksContract.View {
+public class CarrierMainFragment extends Fragment
+        implements TasksContract.View, View.OnClickListener {
 
     private TasksContract.Presenter mPresenter;
     private PreparationBeforeListAdapter mBeforeListAdapter;
     private PreparationBeforeListAdapter mAfterListAdapter;
     private ArrayList<MockPreparationData> mBeforeDatas;
     private ArrayList<MockPreparationData> mAfterDatas;
+    private BottomSheetBehavior bottomSheetBehavior;
 
-    FloatingActionButton fabCarrierAddPreparation;
-    RecyclerView recyclerCarrierMainBeforeList;
+    private LinearLayout layoutCarrierMainBottomSheet;
+    private FloatingActionButton fabCarrierAddPreparation;
+    private RecyclerView recyclerCarrierMainBeforeList;
+    private ImageView imageCarrierMainMenu;
+    private ImageView imageCarrierMainSetting;
 
     public CarrierMainFragment() {
         // Requires empty public constructor
@@ -97,10 +105,16 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_carrier_main, container, false);
 
+        layoutCarrierMainBottomSheet = view.findViewById(R.id.layoutCarrierMainBottomSheet);
+        imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
+        imageCarrierMainSetting = view.findViewById(R.id.imageCarrierMainSetting);
+        recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
+
+        imageCarrierMainMenu.setOnClickListener(this);
+        imageCarrierMainSetting.setOnClickListener(this);
+
         // Set up floating action button
         fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
-
-        recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
 
         fabCarrierAddPreparation.setImageResource(R.drawable.ic_add);
         fabCarrierAddPreparation.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +138,28 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
         recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
         mAfterListAdapter.notifyDataSetChanged();
 
+        bottomSheetBehavior = BottomSheetBehavior.from(layoutCarrierMainBottomSheet);
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                // Slide ...
+                // 1이면 완전 펼쳐진 상태
+                // 0이면 peekHeight인 상태
+                // -1이면 숨김 상태
+            }
+        });
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
         return view;
     }
 
@@ -136,6 +172,20 @@ public class CarrierMainFragment extends Fragment implements TasksContract.View 
     public void showAddTask() {
         Intent intent = new Intent(getContext(), AddEditTaskActivity.class);
         startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.imageCarrierMainMenu:
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                break;
+            case R.id.imageCarrierMainSetting:
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                break;
+            default:
+                break;
+        }
     }
 
     private class PreparationBeforeListAdapter extends RecyclerView.Adapter<PreparationViewHolder> {
