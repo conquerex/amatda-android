@@ -16,7 +16,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:padding="40dp"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,16 +28,36 @@
             android:layout_height="wrap_content"
             android:text="언제 여행을 떠나세요?"
             android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/editAddDateDay"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="날짜를 입력해주세요."/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="떠나는 여행지의 날씨를 알려드릴게요."
             android:textSize="15dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
             android:text="집에서 몇시에 나갈 예정인가요?"
             android:textSize="20dp"/>
+
+        <EditText
+            android:id="@+id/editAddDateTime"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:hint="날짜를 입력해주세요."/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
