@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".addcarrier.AddCarrierActivity"></activity>
+        <activity android:name=".splash.SplashActivity"></activity>
+        <activity android:name=".addcarrier.AddCarrierActivity" />
         <activity
             android:name=".main.CarrierMainActivity"
             android:theme="@style/AppTheme.OverlapSystemBar">
@@ -22,9 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".addedittask.AddEditTaskActivity" />
-
     </application>
 
 </manifest>
