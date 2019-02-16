@@ -14,24 +14,12 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks;
+package com.amatda.main.domain.filter;
 
-/**
- * Used with the filter spinner in the tasks list.
- */
-public enum TasksFilterType {
-    /**
-     * Do not filter tasks.
-     */
-    ALL_TASKS,
+import com.amatda.main.domain.model.Task;
 
-    /**
-     * Filters only the active (not completed yet) tasks.
-     */
-    ACTIVE_TASKS,
+import java.util.List;
 
-    /**
-     * Filters only the completed tasks.
-     */
-    COMPLETED_TASKS
+public interface TaskFilter {
+    List<Task> filter(List<Task> tasks);
 }

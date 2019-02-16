@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.usecase;
+package com.amatda.main.domain.usecase;
 
 import android.support.annotation.NonNull;
 

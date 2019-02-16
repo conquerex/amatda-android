@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks;
+package com.amatda.main;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -25,10 +25,10 @@ import com.amatda.addedittask.AddEditTaskActivity;
 import com.amatda.data.MockOptionData;
 import com.amatda.data.MockPreparationData;
 import com.amatda.data.source.TasksDataSource;
-import com.amatda.tasks.domain.usecase.ActivateTask;
-import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
-import com.amatda.tasks.domain.usecase.CompleteTask;
-import com.amatda.tasks.domain.usecase.GetTasks;
+import com.amatda.main.domain.usecase.ActivateTask;
+import com.amatda.main.domain.usecase.ClearCompleteTasks;
+import com.amatda.main.domain.usecase.CompleteTask;
+import com.amatda.main.domain.usecase.GetTasks;
 import com.amatda.util.ApiInterface;
 import com.amatda.util.NetworkSetting;
 

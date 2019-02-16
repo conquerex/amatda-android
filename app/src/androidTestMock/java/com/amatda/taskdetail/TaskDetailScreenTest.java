@@ -26,7 +26,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.amatda.R;
 import com.amatda.data.FakeTasksRemoteDataSource;
 import com.amatda.data.source.TasksRepository;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 import com.amatda.util.EspressoIdlingResource;
 import com.amatda.TestUtils;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.model;
+package com.amatda.main.domain.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;

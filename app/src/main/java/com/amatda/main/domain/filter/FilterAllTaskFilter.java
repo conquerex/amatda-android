@@ -14,25 +14,19 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.filter;
+package com.amatda.main.domain.filter;
 
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Returns the active tasks from a list of {@link Task}s.
+ * Returns all the tasks from a list of {@link Task}s.
  */
-class ActiveTaskFilter implements TaskFilter {
+class FilterAllTaskFilter implements TaskFilter {
     @Override
     public List<Task> filter(List<Task> tasks) {
-        List<Task> filteredTasks = new ArrayList<>();
-        for (Task task : tasks) {
-            if (task.isActive()) {
-                filteredTasks.add(task);
-            }
-        }
-        return filteredTasks;
+        return new ArrayList<>(tasks);
     }
 }

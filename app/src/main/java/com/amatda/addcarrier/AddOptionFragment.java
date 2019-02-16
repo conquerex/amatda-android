@@ -154,37 +154,24 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                 }
                 break;
             case R.id.viewAddOptionNone:
-//                checkAddOptionNone.setChecked(!checkAddOptionNone.isChecked());
                 changeOptionStatus(checkAddOptionNone, textAddOptionNone, 0);
                 break;
             case R.id.viewAddOptionEssential:
-//                checkAddOptionEssential.setChecked(!checkAddOptionEssential.isChecked());
-//                mapOptions.put(1, !checkAddOptionEssential.isChecked());
                 changeOptionStatus(checkAddOptionEssential, textAddOptionEssential, 1);
                 break;
             case R.id.viewAddOptionSwimming:
-//                checkAddOptionSwimming.setChecked(!checkAddOptionSwimming.isChecked());
-//                mapOptions.put(2, true);
                 changeOptionStatus(checkAddOptionSwimming, textAddOptionSwimming, 2);
                 break;
             case R.id.viewAddOptionWinter:
-//                checkAddOptionWinter.setChecked(!checkAddOptionWinter.isChecked());
-//                mapOptions.put(3, true);
                 changeOptionStatus(checkAddOptionWinter, textAddOptionWinter, 3);
                 break;
             case R.id.viewAddOptionCamping:
-//                checkAddOptionCamping.setChecked(!checkAddOptionCamping.isChecked());
-//                mapOptions.put(4, true);
                 changeOptionStatus(checkAddOptionCamping, textAddOptionCamping, 4);
                 break;
             case R.id.viewAddOptionBusiness:
-//                checkAddOptionBusiness.setChecked(!checkAddOptionBusiness.isChecked());
-//                mapOptions.put(5, true);
                 changeOptionStatus(checkAddOptionBusiness, textAddOptionBusiness, 5);
                 break;
             case R.id.viewAddOptionBaby:
-//                checkAddOptionBaby.setChecked(!checkAddOptionBaby.isChecked());
-//                mapOptions.put(6, true);
                 changeOptionStatus(checkAddOptionBaby, textAddOptionBaby, 6);
                 break;
             default:

@@ -14,12 +14,34 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.filter;
+package com.amatda.main;
 
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.BasePresenter;
+import com.amatda.BaseView;
+import com.amatda.main.domain.model.Task;
 
 import java.util.List;
 
-public interface TaskFilter {
-    List<Task> filter(List<Task> tasks);
+/**
+ * This specifies the contract between the view and the presenter.
+ */
+public interface CarrierMainContract {
+
+    interface View extends BaseView<Presenter> {
+
+        void showTasks(List<Task> tasks);
+
+        void showAddTask();
+    }
+
+    interface Presenter extends BasePresenter {
+
+        void result(int requestCode, int resultCode);
+
+        void loadTasks(boolean forceUpdate);
+
+        void addNewTask();
+
+        void getListAll(int cId);
+    }
 }

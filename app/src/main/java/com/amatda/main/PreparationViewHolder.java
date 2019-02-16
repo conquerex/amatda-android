@@ -1,4 +1,4 @@
-package com.amatda.tasks;
+package com.amatda.main;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

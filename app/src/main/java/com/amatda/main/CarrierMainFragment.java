@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks;
+package com.amatda.main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +35,7 @@ import com.amatda.R;
 import com.amatda.addcarrier.AddCarrierActivity;
 import com.amatda.addedittask.AddEditTaskActivity;
 import com.amatda.data.MockPreparationData;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import java.util.ArrayList;
 import java.util.List;

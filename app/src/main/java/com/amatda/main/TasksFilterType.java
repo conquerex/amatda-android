@@ -14,26 +14,24 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.filter;
-
-import com.amatda.tasks.domain.model.Task;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.amatda.main;
 
 /**
- * Returns the completed tasks from a list of {@link Task}s.
+ * Used with the filter spinner in the tasks list.
  */
-class CompleteTaskFilter implements TaskFilter {
-    @Override
-    public List<Task> filter(List<Task> tasks) {
-        List<Task> filteredTasks = new ArrayList<>();
+public enum TasksFilterType {
+    /**
+     * Do not filter tasks.
+     */
+    ALL_TASKS,
 
-        for (Task task : tasks) {
-            if (task.isCompleted()) {
-                filteredTasks.add(task);
-            }
-        }
-        return filteredTasks;
-    }
+    /**
+     * Filters only the active (not completed yet) tasks.
+     */
+    ACTIVE_TASKS,
+
+    /**
+     * Filters only the completed tasks.
+     */
+    COMPLETED_TASKS
 }

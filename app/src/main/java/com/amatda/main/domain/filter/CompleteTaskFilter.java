@@ -14,34 +14,26 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks;
+package com.amatda.main.domain.filter;
 
-import com.amatda.BasePresenter;
-import com.amatda.BaseView;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This specifies the contract between the view and the presenter.
+ * Returns the completed tasks from a list of {@link Task}s.
  */
-public interface CarrierMainContract {
+class CompleteTaskFilter implements TaskFilter {
+    @Override
+    public List<Task> filter(List<Task> tasks) {
+        List<Task> filteredTasks = new ArrayList<>();
 
-    interface View extends BaseView<Presenter> {
-
-        void showTasks(List<Task> tasks);
-
-        void showAddTask();
-    }
-
-    interface Presenter extends BasePresenter {
-
-        void result(int requestCode, int resultCode);
-
-        void loadTasks(boolean forceUpdate);
-
-        void addNewTask();
-
-        void getListAll(int cId);
+        for (Task task : tasks) {
+            if (task.isCompleted()) {
+                filteredTasks.add(task);
+            }
+        }
+        return filteredTasks;
     }
 }

@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks;
+package com.amatda.main;
 
 import com.amatda.TestUseCaseScheduler;
 import com.amatda.UseCaseHandler;
 import com.amatda.data.source.TasksDataSource.LoadTasksCallback;
 import com.amatda.data.source.TasksRepository;
-import com.amatda.tasks.domain.filter.FilterFactory;
-import com.amatda.tasks.domain.model.Task;
-import com.amatda.tasks.domain.usecase.ActivateTask;
-import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
-import com.amatda.tasks.domain.usecase.CompleteTask;
-import com.amatda.tasks.domain.usecase.GetTasks;
+import com.amatda.main.domain.filter.FilterFactory;
+import com.amatda.main.domain.model.Task;
+import com.amatda.main.domain.usecase.ActivateTask;
+import com.amatda.main.domain.usecase.ClearCompleteTasks;
+import com.amatda.main.domain.usecase.CompleteTask;
+import com.amatda.main.domain.usecase.GetTasks;
 import com.google.common.collect.Lists;
 
 import org.junit.Before;

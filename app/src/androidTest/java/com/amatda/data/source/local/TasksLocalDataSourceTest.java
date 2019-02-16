@@ -22,7 +22,7 @@ import android.support.test.filters.LargeTest;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.amatda.data.source.TasksDataSource;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 import com.amatda.util.SingleExecutors;
 
 import org.junit.After;

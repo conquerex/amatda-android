@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.usecase;
+package com.amatda.main.domain.usecase;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import android.support.annotation.NonNull;
 
 import com.amatda.UseCase;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 import com.amatda.data.source.TasksDataSource;
 import com.amatda.data.source.TasksRepository;
-import com.amatda.tasks.TasksFilterType;
-import com.amatda.tasks.domain.filter.FilterFactory;
-import com.amatda.tasks.domain.filter.TaskFilter;
+import com.amatda.main.TasksFilterType;
+import com.amatda.main.domain.filter.FilterFactory;
+import com.amatda.main.domain.filter.TaskFilter;
 
 import java.util.List;
 

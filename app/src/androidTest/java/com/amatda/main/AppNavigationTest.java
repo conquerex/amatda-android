@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks;
+package com.amatda.main;
 
 import android.support.test.espresso.NoActivityResumedException;
 import android.support.test.filters.LargeTest;

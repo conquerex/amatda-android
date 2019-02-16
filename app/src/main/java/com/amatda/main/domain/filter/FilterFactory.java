@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.filter;
+package com.amatda.main.domain.filter;
 
-import com.amatda.tasks.TasksFilterType;
+import com.amatda.main.TasksFilterType;
 
 import java.util.HashMap;
 import java.util.Map;

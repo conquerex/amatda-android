@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.amatda.tasks.domain.usecase;
+package com.amatda.main.domain.usecase;
 
 import android.support.annotation.NonNull;
 
@@ -24,36 +24,35 @@ import com.amatda.data.source.TasksRepository;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
- * Marks a task as completed.
+ * Marks a task as active (not completed yet).
  */
-public class CompleteTask extends UseCase<CompleteTask.RequestValues, CompleteTask.ResponseValue> {
+public class ActivateTask extends UseCase<ActivateTask.RequestValues, ActivateTask.ResponseValue> {
 
     private final TasksRepository mTasksRepository;
 
-    public CompleteTask(@NonNull TasksRepository tasksRepository) {
+    public ActivateTask(@NonNull TasksRepository tasksRepository) {
         mTasksRepository = checkNotNull(tasksRepository, "tasksRepository cannot be null!");
     }
 
     @Override
     protected void executeUseCase(final RequestValues values) {
-        String completedTask = values.getCompletedTask();
-        mTasksRepository.completeTask(completedTask);
+        String activeTask = values.getActivateTask();
+        mTasksRepository.activateTask(activeTask);
         getUseCaseCallback().onSuccess(new ResponseValue());
     }
 
     public static final class RequestValues implements UseCase.RequestValues {
 
-        private final String mCompletedTask;
+        private final String mActivateTask;
 
-        public RequestValues(@NonNull String completedTask) {
-            mCompletedTask = checkNotNull(completedTask, "completedTask cannot be null!");
+        public RequestValues(@NonNull String activateTask) {
+            mActivateTask = checkNotNull(activateTask, "activateTask cannot be null!");
         }
 
-        public String getCompletedTask() {
-            return mCompletedTask;
+        public String getActivateTask() {
+            return mActivateTask;
         }
     }
 
-    public static final class ResponseValue implements UseCase.ResponseValue {
-    }
+    public static final class ResponseValue implements UseCase.ResponseValue { }
 }
