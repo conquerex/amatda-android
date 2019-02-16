@@ -22,7 +22,7 @@ import com.amatda.addedittask.domain.usecase.GetTask;
 import com.amatda.addedittask.domain.usecase.SaveTask;
 import com.amatda.data.source.TasksDataSource;
 import com.amatda.data.source.TasksRepository;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import org.junit.Before;
 import org.junit.Test;

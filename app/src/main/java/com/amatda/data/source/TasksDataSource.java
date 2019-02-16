@@ -18,7 +18,7 @@ package com.amatda.data.source;
 
 import android.support.annotation.NonNull;
 
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import java.util.List;
 

@@ -19,7 +19,7 @@ package com.amatda.data.source;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import java.util.ArrayList;
 import java.util.Iterator;

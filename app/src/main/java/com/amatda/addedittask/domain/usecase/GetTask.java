@@ -21,7 +21,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import android.support.annotation.NonNull;
 
 import com.amatda.UseCase;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 import com.amatda.data.source.TasksDataSource;
 import com.amatda.data.source.TasksRepository;
 

@@ -15,10 +15,10 @@ public class AddCarrierActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_carrier);
 
-        AddCarrierFragment fragment =
-                (AddCarrierFragment) getSupportFragmentManager().findFragmentById(R.id.layoutAddCarrier);
+        AddCityFragment fragment =
+                (AddCityFragment) getSupportFragmentManager().findFragmentById(R.id.layoutAddCarrier);
         if (fragment == null) {
-            fragment = AddCarrierFragment.newInstance();
+            fragment = AddCityFragment.newInstance();
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), fragment, R.id.layoutAddCarrier);
         }

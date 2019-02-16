@@ -20,7 +20,7 @@
     android:id="@+id/layout_carrier_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.amatda.tasks.CarrierMainActivity"
+    tools:context="com.amatda.main.CarrierMainActivity"
     android:orientation="vertical">
 
     <android.support.design.widget.CoordinatorLayout

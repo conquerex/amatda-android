@@ -1,0 +1,196 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.amatda.addcarrier.AddOptionFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="특이사항을\n입력해주세요"
+        android:textSize="30dp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionNone"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="40dp"
+        android:clickable="true"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionNone"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_none" />
+
+        <TextView
+            android:id="@+id/textAddOptionNone"
+            android:text="선택안함"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionNone"/>
+
+        <View
+            android:id="@+id/viewAddOptionNone"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionEssential"
+        android:layout_marginTop="10dp"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toBottomOf="@id/layoutAddOptionNone"
+        app:layout_constraintStart_toStartOf="@id/layoutAddOptionNone" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionEssential"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_essential" />
+
+        <TextView
+            android:id="@+id/textAddOptionEssential"
+            android:text="필수품"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionEssential"/>
+
+        <View
+            android:id="@+id/viewAddOptionEssential"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionSwimming"
+        android:layout_marginLeft="20dp"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toTopOf="@id/layoutAddOptionEssential"
+        app:layout_constraintStart_toEndOf="@id/layoutAddOptionEssential" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionSwimming"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_swimming" />
+
+        <TextView
+            android:id="@+id/textAddOptionSwimming"
+            android:text="물놀이"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionSwimming"/>
+
+        <View
+            android:id="@+id/viewAddOptionSwimming"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionWinter"
+        android:layout_marginLeft="20dp"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toTopOf="@id/layoutAddOptionSwimming"
+        app:layout_constraintStart_toEndOf="@id/layoutAddOptionSwimming" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionWinter"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_winter" />
+
+        <TextView
+            android:id="@+id/textAddOptionWinter"
+            android:text="겨울 스포츠"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionWinter"/>
+
+        <View
+            android:id="@+id/viewAddOptionWinter"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionCamping"
+        android:layout_marginTop="10dp"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toBottomOf="@id/layoutAddOptionEssential"
+        app:layout_constraintStart_toStartOf="@id/layoutAddOptionNone" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionCamping"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_camping" />
+
+        <TextView
+            android:id="@+id/textAddOptionCamping"
+            android:text="캠핑"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionCamping"/>
+
+        <View
+            android:id="@+id/viewAddOptionCamping"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionBusiness"
+        android:layout_marginLeft="20dp"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toTopOf="@id/layoutAddOptionCamping"
+        app:layout_constraintStart_toEndOf="@id/layoutAddOptionCamping" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionBusiness"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_business" />
+
+        <TextView
+            android:id="@+id/textAddOptionBusiness"
+            android:text="출장"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionBusiness"/>
+
+        <View
+            android:id="@+id/viewAddOptionBusiness"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutAddOptionBaby"
+        android:layout_marginLeft="20dp"
+        style="@style/amatdaAddCarrierOptionLayout"
+        app:layout_constraintTop_toTopOf="@id/layoutAddOptionBusiness"
+        app:layout_constraintStart_toEndOf="@id/layoutAddOptionBusiness" >
+
+        <CheckBox
+            android:id="@+id/checkAddOptionBaby"
+            style="@style/amatdaAddCarrierOptionImage"
+            android:button="@drawable/check_carrier_option_baby" />
+
+        <TextView
+            android:id="@+id/textAddOptionBaby"
+            android:text="영유아 동반"
+            style="@style/amatdaAddCarrierOptionText"
+            app:layout_constraintTop_toBottomOf="@id/checkAddOptionBaby"/>
+
+        <View
+            android:id="@+id/viewAddOptionBaby"
+            style="@style/amatdaAddCarrierOptionView"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/buttonAddOptionNext"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="시작하기"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

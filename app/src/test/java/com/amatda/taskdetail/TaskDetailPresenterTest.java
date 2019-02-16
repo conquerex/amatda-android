@@ -22,9 +22,9 @@ import com.amatda.addedittask.domain.usecase.DeleteTask;
 import com.amatda.addedittask.domain.usecase.GetTask;
 import com.amatda.data.source.TasksDataSource;
 import com.amatda.data.source.TasksRepository;
-import com.amatda.tasks.domain.model.Task;
-import com.amatda.tasks.domain.usecase.ActivateTask;
-import com.amatda.tasks.domain.usecase.CompleteTask;
+import com.amatda.main.domain.model.Task;
+import com.amatda.main.domain.usecase.ActivateTask;
+import com.amatda.main.domain.usecase.CompleteTask;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +35,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;

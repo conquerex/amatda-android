@@ -20,7 +20,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 import com.amatda.data.source.TasksDataSource;
 import com.google.common.collect.Lists;
 

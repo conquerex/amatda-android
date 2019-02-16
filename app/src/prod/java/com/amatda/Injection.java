@@ -27,11 +27,11 @@ import com.amatda.data.source.local.TasksLocalDataSource;
 import com.amatda.data.source.local.ToDoDatabase;
 import com.amatda.data.source.remote.TasksRemoteDataSource;
 import com.amatda.statistics.domain.usecase.GetStatistics;
-import com.amatda.tasks.domain.filter.FilterFactory;
-import com.amatda.tasks.domain.usecase.ActivateTask;
-import com.amatda.tasks.domain.usecase.ClearCompleteTasks;
-import com.amatda.tasks.domain.usecase.CompleteTask;
-import com.amatda.tasks.domain.usecase.GetTasks;
+import com.amatda.main.domain.filter.FilterFactory;
+import com.amatda.main.domain.usecase.ActivateTask;
+import com.amatda.main.domain.usecase.ClearCompleteTasks;
+import com.amatda.main.domain.usecase.CompleteTask;
+import com.amatda.main.domain.usecase.GetTasks;
 import com.amatda.util.AppExecutors;
 
 import static com.google.common.base.Preconditions.checkNotNull;

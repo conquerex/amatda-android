@@ -23,7 +23,7 @@ import com.amatda.UseCase;
 import com.amatda.UseCaseHandler;
 import com.amatda.addedittask.domain.usecase.GetTask;
 import com.amatda.addedittask.domain.usecase.SaveTask;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

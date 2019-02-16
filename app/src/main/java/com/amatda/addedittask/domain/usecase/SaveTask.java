@@ -19,7 +19,7 @@ package com.amatda.addedittask.domain.usecase;
 import android.support.annotation.NonNull;
 
 import com.amatda.UseCase;
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 import com.amatda.data.source.TasksRepository;
 
 import static com.google.common.base.Preconditions.checkNotNull;

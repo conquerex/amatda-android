@@ -22,7 +22,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.amatda.tasks.domain.model.Task;
+import com.amatda.main.domain.model.Task;
 
 import java.util.List;
 
