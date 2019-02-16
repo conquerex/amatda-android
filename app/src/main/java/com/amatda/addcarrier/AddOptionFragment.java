@@ -21,13 +21,13 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
 
     private static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
 
-    private View layoutAddOptionNone;
-    private View layoutAddOptionEssential;
-    private View layoutAddOptionSwimming;
-    private View layoutAddOptionWinter;
-    private View layoutAddOptionCamping;
-    private View layoutAddOptionBusiness;
-    private View layoutAddOptionBaby;
+//    private View layoutAddOptionNone;
+//    private View layoutAddOptionEssential;
+//    private View layoutAddOptionSwimming;
+//    private View layoutAddOptionWinter;
+//    private View layoutAddOptionCamping;
+//    private View layoutAddOptionBusiness;
+//    private View layoutAddOptionBaby;
     private CheckBox checkAddOptionNone;
     private CheckBox checkAddOptionEssential;
     private CheckBox checkAddOptionSwimming;
@@ -42,6 +42,13 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     private TextView textAddOptionCamping;
     private TextView textAddOptionBusiness;
     private TextView textAddOptionBaby;
+    private View viewAddOptionNone;
+    private View viewAddOptionEssential;
+    private View viewAddOptionSwimming;
+    private View viewAddOptionWinter;
+    private View viewAddOptionCamping;
+    private View viewAddOptionBusiness;
+    private View viewAddOptionBaby;
 
     private ArrayList<Integer> listOptions;
 
@@ -62,13 +69,13 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_option, container, false);
 
-        layoutAddOptionNone = view.findViewById(R.id.layoutAddOptionNone);
-        layoutAddOptionEssential = view.findViewById(R.id.layoutAddOptionEssential);
-        layoutAddOptionSwimming = view.findViewById(R.id.layoutAddOptionSwimming);
-        layoutAddOptionWinter = view.findViewById(R.id.layoutAddOptionWinter);
-        layoutAddOptionCamping = view.findViewById(R.id.layoutAddOptionCamping);
-        layoutAddOptionBusiness = view.findViewById(R.id.layoutAddOptionBusiness);
-        layoutAddOptionBaby = view.findViewById(R.id.checkAddOptionNone);
+//        layoutAddOptionNone = view.findViewById(R.id.layoutAddOptionNone);
+//        layoutAddOptionEssential = view.findViewById(R.id.layoutAddOptionEssential);
+//        layoutAddOptionSwimming = view.findViewById(R.id.layoutAddOptionSwimming);
+//        layoutAddOptionWinter = view.findViewById(R.id.layoutAddOptionWinter);
+//        layoutAddOptionCamping = view.findViewById(R.id.layoutAddOptionCamping);
+//        layoutAddOptionBusiness = view.findViewById(R.id.layoutAddOptionBusiness);
+//        layoutAddOptionBaby = view.findViewById(R.id.checkAddOptionNone);
         checkAddOptionNone = view.findViewById(R.id.checkAddOptionNone);
         checkAddOptionEssential = view.findViewById(R.id.checkAddOptionEssential);
         checkAddOptionSwimming = view.findViewById(R.id.checkAddOptionSwimming);
@@ -83,6 +90,28 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         textAddOptionCamping = view.findViewById(R.id.textAddOptionCamping);
         textAddOptionBusiness = view.findViewById(R.id.textAddOptionBusiness);
         textAddOptionBaby = view.findViewById(R.id.textAddOptionBaby);
+        viewAddOptionNone = view.findViewById(R.id.viewAddOptionNone);
+        viewAddOptionEssential = view.findViewById(R.id.viewAddOptionEssential);
+        viewAddOptionSwimming = view.findViewById(R.id.viewAddOptionSwimming);
+        viewAddOptionWinter= view.findViewById(R.id.viewAddOptionWinter);
+        viewAddOptionCamping= view.findViewById(R.id.viewAddOptionCamping);
+        viewAddOptionBusiness= view.findViewById(R.id.viewAddOptionBusiness);
+        viewAddOptionBaby = view.findViewById(R.id.viewAddOptionBaby);
+
+//        layoutAddOptionNone.setOnClickListener(this);
+//        layoutAddOptionEssential.setOnClickListener(this);
+//        layoutAddOptionSwimming.setOnClickListener(this);
+//        layoutAddOptionWinter.setOnClickListener(this);
+//        layoutAddOptionCamping.setOnClickListener(this);
+//        layoutAddOptionBusiness.setOnClickListener(this);
+//        layoutAddOptionBaby.setOnClickListener(this);
+        viewAddOptionNone.setOnClickListener(this);
+        viewAddOptionEssential.setOnClickListener(this);
+        viewAddOptionSwimming.setOnClickListener(this);
+        viewAddOptionWinter.setOnClickListener(this);
+        viewAddOptionCamping.setOnClickListener(this);
+        viewAddOptionBusiness.setOnClickListener(this);
+        viewAddOptionBaby.setOnClickListener(this);
 
         return view;
     }
@@ -90,22 +119,26 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.layoutAddOptionNone:
+            case R.id.viewAddOptionNone:
                 checkAddOptionNone.setChecked(!checkAddOptionNone.isChecked());
-                Toast.makeText(getContext(), "layoutAddOptionNone", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.layoutAddOptionEssential:
+            case R.id.viewAddOptionEssential:
                 checkAddOptionEssential.setChecked(!checkAddOptionEssential.isChecked());
                 break;
-            case R.id.layoutAddOptionSwimming:
+            case R.id.viewAddOptionSwimming:
+                checkAddOptionSwimming.setChecked(!checkAddOptionSwimming.isChecked());
                 break;
-            case R.id.layoutAddOptionWinter:
+            case R.id.viewAddOptionWinter:
+                checkAddOptionWinter.setChecked(!checkAddOptionWinter.isChecked());
                 break;
-            case R.id.layoutAddOptionCamping:
+            case R.id.viewAddOptionCamping:
+                checkAddOptionCamping.setChecked(!checkAddOptionCamping.isChecked());
                 break;
-            case R.id.layoutAddOptionBusiness:
+            case R.id.viewAddOptionBusiness:
+                checkAddOptionBusiness.setChecked(!checkAddOptionBusiness.isChecked());
                 break;
-            case R.id.layoutAddOptionBaby:
+            case R.id.viewAddOptionBaby:
+                checkAddOptionBaby.setChecked(!checkAddOptionBaby.isChecked());
                 break;
             default:
                 break;

@@ -17,6 +17,7 @@
         android:id="@+id/layoutAddOptionNone"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="40dp"
+        android:clickable="true"
         style="@style/amatdaAddCarrierOptionLayout"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" >
@@ -32,11 +33,15 @@
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionNone"/>
 
+        <View
+            android:id="@+id/viewAddOptionNone"
+            style="@style/amatdaAddCarrierOptionView"/>
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layoutAddOptionEssential"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         style="@style/amatdaAddCarrierOptionLayout"
         app:layout_constraintTop_toBottomOf="@id/layoutAddOptionNone"
         app:layout_constraintStart_toStartOf="@id/layoutAddOptionNone" >
@@ -51,6 +56,10 @@
             android:text="필수품"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionEssential"/>
+
+        <View
+            android:id="@+id/viewAddOptionEssential"
+            style="@style/amatdaAddCarrierOptionView"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -72,6 +81,10 @@
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionSwimming"/>
 
+        <View
+            android:id="@+id/viewAddOptionSwimming"
+            style="@style/amatdaAddCarrierOptionView"/>
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -92,11 +105,15 @@
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionWinter"/>
 
+        <View
+            android:id="@+id/viewAddOptionWinter"
+            style="@style/amatdaAddCarrierOptionView"/>
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/layoutAddOptionCamping"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         style="@style/amatdaAddCarrierOptionLayout"
         app:layout_constraintTop_toBottomOf="@id/layoutAddOptionEssential"
         app:layout_constraintStart_toStartOf="@id/layoutAddOptionNone" >
@@ -111,6 +128,10 @@
             android:text="캠핑"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionCamping"/>
+
+        <View
+            android:id="@+id/viewAddOptionCamping"
+            style="@style/amatdaAddCarrierOptionView"/>
 
     </android.support.constraint.ConstraintLayout>
 
@@ -132,6 +153,10 @@
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionBusiness"/>
 
+        <View
+            android:id="@+id/viewAddOptionBusiness"
+            style="@style/amatdaAddCarrierOptionView"/>
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -151,6 +176,10 @@
             android:text="영유아 동반"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionBaby"/>
+
+        <View
+            android:id="@+id/viewAddOptionBaby"
+            style="@style/amatdaAddCarrierOptionView"/>
 
     </android.support.constraint.ConstraintLayout>
 
