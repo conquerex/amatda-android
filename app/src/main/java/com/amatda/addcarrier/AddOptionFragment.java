@@ -135,12 +135,14 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         /**
          * 선택안함 클릭 했을 때
          */
-        if (v.getId() == R.id.viewAddOptionNone) {
-            noneSelect(!checkAddOptionNone.isChecked());
-        } else {
-            checkAddOptionNone.setChecked(false);
-            textAddOptionNone.setTextColor(getResources().getColor(R.color.gray));
-            mapOptions.put(0, false);
+        if (v.getId() != R.id.buttonAddOptionNext) {
+            if (v.getId() == R.id.viewAddOptionNone) {
+                noneSelect(!checkAddOptionNone.isChecked());
+            } else {
+                checkAddOptionNone.setChecked(false);
+                textAddOptionNone.setTextColor(getResources().getColor(R.color.gray));
+                mapOptions.put(0, false);
+            }
         }
 
         switch (v.getId()) {
@@ -197,7 +199,9 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         } else {
             textView.setTextColor(getResources().getColor(R.color.gray));
         }
-        mapOptions.put(valueOption, checkBox.isChecked());
+        if (valueOption != 0) {
+            mapOptions.put(valueOption, checkBox.isChecked());
+        }
     }
 
     private void noneSelect(boolean noneStatus) {
