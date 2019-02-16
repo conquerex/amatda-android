@@ -30,6 +30,8 @@ import java.util.Locale;
 public class AddDateFragment extends Fragment
         implements View.OnClickListener {
 
+    private static final String KEY_VALUE_CITY = "KEY_VALUE_CITY";
+
     private Button buttonAddDateNext;
     private EditText editAddDateDay;
     private EditText editAddDateTime;
@@ -41,10 +43,19 @@ public class AddDateFragment extends Fragment
     private int mHour = calendar.get(Calendar.HOUR_OF_DAY);
     private int mMinute = calendar.get(Calendar.MINUTE);
 
+    private int valueCity;
+
     public AddDateFragment() {
         // Required empty public constructor
     }
 
+    public static AddDateFragment newInstance(int valueCity) {
+        AddDateFragment fragment = new AddDateFragment();
+        Bundle args = new Bundle();
+        args.putInt(KEY_VALUE_CITY, valueCity);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,6 +70,11 @@ public class AddDateFragment extends Fragment
         editAddDateDay.setOnClickListener(this);
         editAddDateTime.setOnClickListener(this);
 
+        if (getArguments() != null) {
+            valueCity = getArguments().getInt(KEY_VALUE_CITY);
+            Log.d("AddDateFragment", " * * * city : " + valueCity);
+        }
+
         return view;
     }
 
@@ -70,6 +86,7 @@ public class AddDateFragment extends Fragment
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.layoutAddCarrier, fragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             case R.id.editAddDateDay:

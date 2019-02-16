@@ -14,6 +14,8 @@ import com.amatda.R;
  */
 public class AddOptionFragment extends Fragment implements View.OnClickListener {
 
+    private static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
+
     private View layoutAddOptionNone;
     private View layoutAddOptionEssential;
     private View layoutAddOptionSwimming;
@@ -24,6 +26,14 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
 
     public AddOptionFragment() {
         // Required empty public constructor
+    }
+
+    public static AddOptionFragment newInstance(int valueCity) {
+        AddOptionFragment fragment = new AddOptionFragment();
+        Bundle args = new Bundle();
+        args.putInt(KEY_VALUE_DATE, valueCity);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
