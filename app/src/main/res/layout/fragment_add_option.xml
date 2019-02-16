@@ -27,6 +27,7 @@
             android:button="@drawable/check_carrier_option_none" />
 
         <TextView
+            android:id="@+id/textAddOptionNone"
             android:text="선택안함"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionNone"/>
@@ -46,6 +47,7 @@
             android:button="@drawable/check_carrier_option_essential" />
 
         <TextView
+            android:id="@+id/textAddOptionEssential"
             android:text="필수품"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionEssential"/>
@@ -65,6 +67,7 @@
             android:button="@drawable/check_carrier_option_swimming" />
 
         <TextView
+            android:id="@+id/textAddOptionSwimming"
             android:text="물놀이"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionSwimming"/>
@@ -84,6 +87,7 @@
             android:button="@drawable/check_carrier_option_winter" />
 
         <TextView
+            android:id="@+id/textAddOptionWinter"
             android:text="겨울 스포츠"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionWinter"/>
@@ -103,6 +107,7 @@
             android:button="@drawable/check_carrier_option_camping" />
 
         <TextView
+            android:id="@+id/textAddOptionCamping"
             android:text="캠핑"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionCamping"/>
@@ -122,6 +127,7 @@
             android:button="@drawable/check_carrier_option_business" />
 
         <TextView
+            android:id="@+id/textAddOptionBusiness"
             android:text="출장"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionBusiness"/>
@@ -141,6 +147,7 @@
             android:button="@drawable/check_carrier_option_baby" />
 
         <TextView
+            android:id="@+id/textAddOptionBaby"
             android:text="영유아 동반"
             style="@style/amatdaAddCarrierOptionText"
             app:layout_constraintTop_toBottomOf="@id/checkAddOptionBaby"/>
