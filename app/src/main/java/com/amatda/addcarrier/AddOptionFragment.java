@@ -3,16 +3,18 @@ package com.amatda.addcarrier;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.amatda.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 public class AddOptionFragment extends Fragment implements View.OnClickListener {
 
     private static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
+    private static final int SIZE_OPTIONS = 7;
 
 //    private View layoutAddOptionNone;
 //    private View layoutAddOptionEssential;
@@ -49,8 +52,10 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     private View viewAddOptionCamping;
     private View viewAddOptionBusiness;
     private View viewAddOptionBaby;
+    private Button buttonAddOptionNext;
 
     private ArrayList<Integer> listOptions;
+    private HashMap<Integer, Boolean> mapOptions;
 
     public AddOptionFragment() {
         // Required empty public constructor
@@ -76,6 +81,7 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
 //        layoutAddOptionCamping = view.findViewById(R.id.layoutAddOptionCamping);
 //        layoutAddOptionBusiness = view.findViewById(R.id.layoutAddOptionBusiness);
 //        layoutAddOptionBaby = view.findViewById(R.id.checkAddOptionNone);
+        buttonAddOptionNext = view.findViewById(R.id.buttonAddOptionNext);
         checkAddOptionNone = view.findViewById(R.id.checkAddOptionNone);
         checkAddOptionEssential = view.findViewById(R.id.checkAddOptionEssential);
         checkAddOptionSwimming = view.findViewById(R.id.checkAddOptionSwimming);
@@ -105,6 +111,7 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
 //        layoutAddOptionCamping.setOnClickListener(this);
 //        layoutAddOptionBusiness.setOnClickListener(this);
 //        layoutAddOptionBaby.setOnClickListener(this);
+        buttonAddOptionNext.setOnClickListener(this);
         viewAddOptionNone.setOnClickListener(this);
         viewAddOptionEssential.setOnClickListener(this);
         viewAddOptionSwimming.setOnClickListener(this);
@@ -113,33 +120,69 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         viewAddOptionBusiness.setOnClickListener(this);
         viewAddOptionBaby.setOnClickListener(this);
 
+        listOptions = new ArrayList();
+        mapOptions = new HashMap<>();
+        for (int i = 0; i < SIZE_OPTIONS; i++) {
+            mapOptions.put(i, false);
+        }
+
         return view;
     }
 
     @Override
     public void onClick(View v) {
+
+        /**
+         * 선택안함 클릭 했을 때
+         */
+        if (v.getId() == R.id.viewAddOptionNone) {
+            noneSelect(!checkAddOptionNone.isChecked());
+            for (int i = 0; i < SIZE_OPTIONS; i++) {
+                if (i == 0) {
+                    mapOptions.put(i, true);
+                } else {
+                    mapOptions.put(i, false);
+                }
+            }
+        } else {
+            checkAddOptionNone.setChecked(false);
+            mapOptions.put(0, false);
+        }
+
         switch (v.getId()) {
+            case R.id.buttonAddOptionNext:
+                for (int i = 0; i < SIZE_OPTIONS; i++) {
+                    if (mapOptions.get(i)) {
+                        Log.d("AddOptionFragment", " * * * options : " + (i+1));
+                    }
+                }
+                break;
             case R.id.viewAddOptionNone:
                 checkAddOptionNone.setChecked(!checkAddOptionNone.isChecked());
-                noneSelect(checkAddOptionNone.isChecked());
                 break;
             case R.id.viewAddOptionEssential:
                 checkAddOptionEssential.setChecked(!checkAddOptionEssential.isChecked());
+                mapOptions.put(1, true);
                 break;
             case R.id.viewAddOptionSwimming:
                 checkAddOptionSwimming.setChecked(!checkAddOptionSwimming.isChecked());
+                mapOptions.put(2, true);
                 break;
             case R.id.viewAddOptionWinter:
                 checkAddOptionWinter.setChecked(!checkAddOptionWinter.isChecked());
+                mapOptions.put(3, true);
                 break;
             case R.id.viewAddOptionCamping:
                 checkAddOptionCamping.setChecked(!checkAddOptionCamping.isChecked());
+                mapOptions.put(4, true);
                 break;
             case R.id.viewAddOptionBusiness:
                 checkAddOptionBusiness.setChecked(!checkAddOptionBusiness.isChecked());
+                mapOptions.put(5, true);
                 break;
             case R.id.viewAddOptionBaby:
                 checkAddOptionBaby.setChecked(!checkAddOptionBaby.isChecked());
+                mapOptions.put(6, true);
                 break;
             default:
                 break;
