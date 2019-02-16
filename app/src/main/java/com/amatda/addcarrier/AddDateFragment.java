@@ -12,22 +12,19 @@ import com.amatda.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddCarrierFragment extends Fragment {
+public class AddDateFragment extends Fragment {
 
 
-    public AddCarrierFragment() {
+    public AddDateFragment() {
         // Required empty public constructor
     }
 
-    public static AddCarrierFragment newInstance() {
-        return new AddCarrierFragment();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_carrier, container, false);
+        return inflater.inflate(R.layout.fragment_add_date, container, false);
     }
 
 }
