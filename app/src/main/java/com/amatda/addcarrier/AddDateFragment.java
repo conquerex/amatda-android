@@ -3,6 +3,8 @@ package com.amatda.addcarrier;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,13 @@ public class AddDateFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_add_date, container, false);
 
         buttonAddDateNext = view.findViewById(R.id.buttonAddDateNext);
+        buttonAddDateNext.setOnClickListener(v -> {
+            AddOptionFragment fragment = new AddOptionFragment();
+            FragmentManager manager = getFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.layoutAddCarrier, fragment);
+            transaction.commit();
+        });
 
         return view;
     }
