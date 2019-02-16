@@ -137,15 +137,9 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
          */
         if (v.getId() == R.id.viewAddOptionNone) {
             noneSelect(!checkAddOptionNone.isChecked());
-            for (int i = 0; i < SIZE_OPTIONS; i++) {
-                if (i == 0) {
-                    mapOptions.put(i, true);
-                } else {
-                    mapOptions.put(i, false);
-                }
-            }
         } else {
             checkAddOptionNone.setChecked(false);
+            textAddOptionNone.setTextColor(getResources().getColor(R.color.gray));
             mapOptions.put(0, false);
         }
 
@@ -158,35 +152,52 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                 }
                 break;
             case R.id.viewAddOptionNone:
-                checkAddOptionNone.setChecked(!checkAddOptionNone.isChecked());
+//                checkAddOptionNone.setChecked(!checkAddOptionNone.isChecked());
+                changeOptionStatus(checkAddOptionNone, textAddOptionNone, 0);
                 break;
             case R.id.viewAddOptionEssential:
-                checkAddOptionEssential.setChecked(!checkAddOptionEssential.isChecked());
-                mapOptions.put(1, true);
+//                checkAddOptionEssential.setChecked(!checkAddOptionEssential.isChecked());
+//                mapOptions.put(1, !checkAddOptionEssential.isChecked());
+                changeOptionStatus(checkAddOptionEssential, textAddOptionEssential, 1);
                 break;
             case R.id.viewAddOptionSwimming:
-                checkAddOptionSwimming.setChecked(!checkAddOptionSwimming.isChecked());
-                mapOptions.put(2, true);
+//                checkAddOptionSwimming.setChecked(!checkAddOptionSwimming.isChecked());
+//                mapOptions.put(2, true);
+                changeOptionStatus(checkAddOptionSwimming, textAddOptionSwimming, 2);
                 break;
             case R.id.viewAddOptionWinter:
-                checkAddOptionWinter.setChecked(!checkAddOptionWinter.isChecked());
-                mapOptions.put(3, true);
+//                checkAddOptionWinter.setChecked(!checkAddOptionWinter.isChecked());
+//                mapOptions.put(3, true);
+                changeOptionStatus(checkAddOptionWinter, textAddOptionWinter, 3);
                 break;
             case R.id.viewAddOptionCamping:
-                checkAddOptionCamping.setChecked(!checkAddOptionCamping.isChecked());
-                mapOptions.put(4, true);
+//                checkAddOptionCamping.setChecked(!checkAddOptionCamping.isChecked());
+//                mapOptions.put(4, true);
+                changeOptionStatus(checkAddOptionCamping, textAddOptionCamping, 4);
                 break;
             case R.id.viewAddOptionBusiness:
-                checkAddOptionBusiness.setChecked(!checkAddOptionBusiness.isChecked());
-                mapOptions.put(5, true);
+//                checkAddOptionBusiness.setChecked(!checkAddOptionBusiness.isChecked());
+//                mapOptions.put(5, true);
+                changeOptionStatus(checkAddOptionBusiness, textAddOptionBusiness, 5);
                 break;
             case R.id.viewAddOptionBaby:
-                checkAddOptionBaby.setChecked(!checkAddOptionBaby.isChecked());
-                mapOptions.put(6, true);
+//                checkAddOptionBaby.setChecked(!checkAddOptionBaby.isChecked());
+//                mapOptions.put(6, true);
+                changeOptionStatus(checkAddOptionBaby, textAddOptionBaby, 6);
                 break;
             default:
                 break;
         }
+    }
+
+    private void changeOptionStatus(CheckBox checkBox, TextView textView, int valueOption) {
+        checkBox.setChecked(!checkBox.isChecked());
+        if (checkBox.isChecked()) {
+            textView.setTextColor(getResources().getColor(R.color.rose));
+        } else {
+            textView.setTextColor(getResources().getColor(R.color.gray));
+        }
+        mapOptions.put(valueOption, checkBox.isChecked());
     }
 
     private void noneSelect(boolean noneStatus) {
@@ -197,6 +208,24 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
             checkAddOptionCamping.setChecked(false);
             checkAddOptionBusiness.setChecked(false);
             checkAddOptionBaby.setChecked(false);
+            textAddOptionEssential.setTextColor(getResources().getColor(R.color.gray));
+            textAddOptionSwimming.setTextColor(getResources().getColor(R.color.gray));
+            textAddOptionWinter.setTextColor(getResources().getColor(R.color.gray));
+            textAddOptionCamping.setTextColor(getResources().getColor(R.color.gray));
+            textAddOptionBusiness.setTextColor(getResources().getColor(R.color.gray));
+            textAddOptionBaby.setTextColor(getResources().getColor(R.color.gray));
+
+            textAddOptionNone.setTextColor(getResources().getColor(R.color.rose));
+            for (int i = 0; i < SIZE_OPTIONS; i++) {
+                if (i == 0) {
+                    mapOptions.put(i, true);
+                } else {
+                    mapOptions.put(i, false);
+                }
+            }
+        } else {
+            textAddOptionNone.setTextColor(getResources().getColor(R.color.gray));
+            mapOptions.put(0, false);
         }
         
     }
