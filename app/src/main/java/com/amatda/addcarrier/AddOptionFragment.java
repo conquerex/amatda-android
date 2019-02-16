@@ -121,6 +121,7 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.viewAddOptionNone:
                 checkAddOptionNone.setChecked(!checkAddOptionNone.isChecked());
+                noneSelect(checkAddOptionNone.isChecked());
                 break;
             case R.id.viewAddOptionEssential:
                 checkAddOptionEssential.setChecked(!checkAddOptionEssential.isChecked());
@@ -143,5 +144,17 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
             default:
                 break;
         }
+    }
+
+    private void noneSelect(boolean noneStatus) {
+        if (noneStatus) {
+            checkAddOptionEssential.setChecked(false);
+            checkAddOptionSwimming.setChecked(false);
+            checkAddOptionWinter.setChecked(false);
+            checkAddOptionCamping.setChecked(false);
+            checkAddOptionBusiness.setChecked(false);
+            checkAddOptionBaby.setChecked(false);
+        }
+        
     }
 }
