@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/buttonAddCityNext"
+        android:id="@+id/buttonAddDateNext"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="다음"
