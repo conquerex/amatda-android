@@ -49,9 +49,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Display a grid of {@link Task}s. User can choose to view all, active or completed tasks.
  */
 public class CarrierMainFragment extends Fragment
-        implements TasksContract.View, View.OnClickListener {
+        implements CarrierMainContract.View, View.OnClickListener {
 
-    private TasksContract.Presenter mPresenter;
+    private CarrierMainContract.Presenter mPresenter;
     private PreparationBeforeListAdapter mBeforeListAdapter;
     private PreparationBeforeListAdapter mAfterListAdapter;
     private ArrayList<MockPreparationData> mBeforeDatas;
@@ -92,7 +92,7 @@ public class CarrierMainFragment extends Fragment
     }
 
     @Override
-    public void setPresenter(@NonNull TasksContract.Presenter presenter) {
+    public void setPresenter(@NonNull CarrierMainContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
     }
 
@@ -186,6 +186,8 @@ public class CarrierMainFragment extends Fragment
             case R.id.imageCarrierMainMenu:
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                // todo : Remove soon
+                mPresenter.getListAll(3);
                 break;
             case R.id.imageCarrierMainSetting:
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);

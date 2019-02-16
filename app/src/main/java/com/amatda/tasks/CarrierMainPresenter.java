@@ -18,7 +18,6 @@ package com.amatda.tasks;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import com.amatda.UseCase;
 import com.amatda.UseCaseHandler;
@@ -45,9 +44,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * Listens to user actions from the UI ({@link CarrierMainFragment}), retrieves the data and updates the
  * UI as required.
  */
-public class CarrierMainPresenter implements TasksContract.Presenter {
+public class CarrierMainPresenter implements CarrierMainContract.Presenter {
 
-    private final TasksContract.View mTasksView;
+    private final CarrierMainContract.View mTasksView;
     private final GetTasks mGetTasks;
 
     private TasksFilterType mCurrentFiltering = TasksFilterType.ALL_TASKS;
@@ -59,20 +58,19 @@ public class CarrierMainPresenter implements TasksContract.Presenter {
     private Realm realm;
 
     public CarrierMainPresenter(@NonNull UseCaseHandler useCaseHandler,
-                                @NonNull TasksContract.View tasksView, @NonNull GetTasks getTasks,
+                                @NonNull CarrierMainContract.View tasksView, @NonNull GetTasks getTasks,
                                 @NonNull CompleteTask completeTask, @NonNull ActivateTask activateTask,
                                 @NonNull ClearCompleteTasks clearCompleteTasks) {
         mUseCaseHandler = checkNotNull(useCaseHandler, "usecaseHandler cannot be null");
         mTasksView = checkNotNull(tasksView, "tasksView cannot be null!");
         mGetTasks = checkNotNull(getTasks, "getTask cannot be null!");
-
         mTasksView.setPresenter(this);
     }
 
-    public void getJKStest() {
+    public void getListAll(int cId) {
         apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
 
-        Call<Void> call = apiInterface.getTestApi();
+        Call<Void> call = apiInterface.getListAll(cId);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

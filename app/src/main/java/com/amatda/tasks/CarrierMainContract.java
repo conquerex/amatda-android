@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * This specifies the contract between the view and the presenter.
  */
-public interface TasksContract {
+public interface CarrierMainContract {
 
     interface View extends BaseView<Presenter> {
 
@@ -41,5 +41,7 @@ public interface TasksContract {
         void loadTasks(boolean forceUpdate);
 
         void addNewTask();
+
+        void getListAll(int cId);
     }
 }

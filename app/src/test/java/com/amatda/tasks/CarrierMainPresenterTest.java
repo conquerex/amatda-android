@@ -56,7 +56,7 @@ public class CarrierMainPresenterTest {
     private TasksRepository mTasksRepository;
 
     @Mock
-    private TasksContract.View mTasksView;
+    private CarrierMainContract.View mTasksView;
 
     /**
      * {@link ArgumentCaptor} is a powerful Mockito API to capture argument values and use them to
