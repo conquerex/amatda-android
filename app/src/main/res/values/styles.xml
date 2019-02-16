@@ -26,5 +26,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="amatdaAddCarrierOptionLayout" >
+        <itme name="android:layout_width">wrap_content</itme>
+        <itme name="android:layout_height">wrap_content</itme>
+        <itme name="android:orientation">vertical</itme>
+        <itme name="android:gravity">center_horizontal</itme>
+    </style>
+
+    <style name="amatdaAddCarrierOptionImage" >
+        <itme name="android:layout_width">60dp</itme>
+        <itme name="android:layout_height">wrap_content</itme>
+        <itme name="android:adjustViewBounds">true</itme>
+    </style>
+
+    <style name="amatdaAddCarrierOptionText">
+        <itme name="android:layout_width">wrap_content</itme>
+        <itme name="android:layout_height">wrap_content</itme>
+        <itme name="android:layout_marginTop">8dp</itme>
+        <itme name="android:textSize">15dp</itme>
+    </style>
+
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 </resources>
