@@ -89,7 +89,7 @@ public class AddDateFragment extends Fragment
         switch (v.getId()) {
             case R.id.buttonAddDateNext:
                 AddOptionFragment fragment = AddOptionFragment.newInstance(
-                        valueCity, valueDate + valueTime);
+                        valueCity, valueDate + " " + valueTime);
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.layoutAddCarrier, fragment);

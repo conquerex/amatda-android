@@ -48,7 +48,7 @@ import static org.mockito.Mockito.when;
 /**
  * Unit tests for the implementation of {@link CarrierMainPresenter}
  */
-public class CarrierMainPresenterTest {
+public class CarrierDataMainPresenterTest {
 
     private static List<Task> TASKS;
 

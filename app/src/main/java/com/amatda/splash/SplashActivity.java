@@ -1,7 +1,6 @@
 package com.amatda.splash;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -9,7 +8,7 @@ import android.util.Log;
 import com.airbnb.lottie.LottieAnimationView;
 import com.amatda.R;
 import com.amatda.addcarrier.AddCarrierActivity;
-import com.amatda.data.source.Carrier;
+import com.amatda.data.source.CarrierData;
 import com.amatda.main.CarrierMainActivity;
 
 import io.realm.Realm;
@@ -30,8 +29,8 @@ public class SplashActivity extends Activity {
         Realm.setDefaultConfiguration(config);
 
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Carrier> query = realm.where(Carrier.class);
-        RealmResults<Carrier> results = query.findAll();
+        RealmQuery<CarrierData> query = realm.where(CarrierData.class);
+        RealmResults<CarrierData> results = query.findAll();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -42,7 +41,7 @@ public class SplashActivity extends Activity {
                     /*
                     for (int i = 1; i < 4; i++) {
                         realm.beginTransaction();
-                        Carrier carrier = realm.createObject(Carrier.class, i);
+                        CarrierData carrier = realm.createObject(CarrierData.class, i);
                         realm.commitTransaction();
                     }
                     */

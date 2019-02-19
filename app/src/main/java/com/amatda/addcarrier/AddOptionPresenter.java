@@ -32,18 +32,17 @@ public class AddOptionPresenter implements AddOptionContract.Presenter {
 
     @Override
     public void makeCarrier(int cCountry, String startDate, ArrayList<Integer> category_list) {
-        Log.d("AddOptionPresenter", " * * * makeCarrier");
         apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
         Call<Integer> call = apiInterface.makeCarrier(cCountry, startDate, category_list);
         call.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
-                Log.d("AddOptionPresenter", " * * * cId : " + response.body());
+                Log.d("AddOptionPresenter", " * * * cId : " + response.body().toString());
             }
 
             @Override
             public void onFailure(Call<Integer> call, Throwable t) {
-                //
+                Log.d("AddOptionPresenter", " * * * Err message : " + t.getMessage());
             }
         });
     }

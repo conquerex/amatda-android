@@ -3,7 +3,7 @@ package com.amatda.data.source;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Carrier extends RealmObject {
+public class CarrierData extends RealmObject {
 
     @PrimaryKey
     private int carrierId;
@@ -18,7 +18,7 @@ public class Carrier extends RealmObject {
 
     @Override
     public String toString() {
-        return "Carrier{" +
+        return "CarrierData{" +
                 "carrierId=" + carrierId +
                 '}';
     }
