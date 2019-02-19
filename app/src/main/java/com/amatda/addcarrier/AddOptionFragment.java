@@ -61,7 +61,7 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         // Required empty public constructor
     }
 
-    public static AddOptionFragment newInstance(int valueCity) {
+    public static AddOptionFragment newInstance(int valueCity, String valueDate) {
         AddOptionFragment fragment = new AddOptionFragment();
         Bundle args = new Bundle();
         args.putInt(KEY_VALUE_DATE, valueCity);

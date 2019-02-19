@@ -44,6 +44,8 @@ public class AddDateFragment extends Fragment
     private int mMinute = calendar.get(Calendar.MINUTE);
 
     private int valueCity;
+    private String valueDate;
+    private String valueTime;
 
     public AddDateFragment() {
         // Required empty public constructor
@@ -75,6 +77,12 @@ public class AddDateFragment extends Fragment
             Log.d("AddDateFragment", " * * * city : " + valueCity);
         }
 
+        if (valueTime == null || valueDate == null) {
+            buttonAddDateNext.setEnabled(false);
+        } else {
+            buttonAddDateNext.setEnabled(true);
+        }
+
         return view;
     }
 
@@ -82,7 +90,8 @@ public class AddDateFragment extends Fragment
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonAddDateNext:
-                AddOptionFragment fragment = new AddOptionFragment();
+                AddOptionFragment fragment = AddOptionFragment.newInstance(
+                        valueCity, valueDate + valueTime);
                 FragmentManager manager = getFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.layoutAddCarrier, fragment);
@@ -95,16 +104,25 @@ public class AddDateFragment extends Fragment
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                                 /**
-                                 *
+                                 * Screen ex) 2019.02.28
+                                 * Data ex) 19-02-28
                                  */
-                                Calendar calendar = Calendar.getInstance();
-                                calendar.set(year, month, dayOfMonth);
-                                SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
-                                editAddDateDay.setText(format.format(calendar.getTime()));
                                 mYear = year;
                                 mMonth = month;
                                 mDayOfMonth = dayOfMonth;
-                                Log.d("AddDateFragment", " * * * Day : " + mDayOfMonth);
+                                Calendar calendar = Calendar.getInstance();
+                                calendar.set(year, month, dayOfMonth);
+                                SimpleDateFormat formatScreen = new SimpleDateFormat("yyyy.MM.dd");
+                                SimpleDateFormat formatData = new SimpleDateFormat("yy-MM-dd");
+                                editAddDateDay.setText(formatScreen.format(calendar.getTime()));
+                                valueDate = formatData.format(calendar.getTime());
+
+                                if (valueDate == null || valueTime == null) {
+                                    buttonAddDateNext.setEnabled(false);
+                                } else {
+                                    buttonAddDateNext.setEnabled(true);
+                                }
+                                Log.d("AddDateFragment", " * * * formatData : " + valueDate);
                             }
                         }, mYear, mMonth, mDayOfMonth);
                 datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
@@ -116,14 +134,24 @@ public class AddDateFragment extends Fragment
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 /**
-                                 *
+                                 * Screen ex) 5:43 PM
+                                 * Data ex) 5:43:00
                                  */
-                                Time tripTime = new Time(hourOfDay, minute,0);  // seconds by default set to zero
-                                Format formatter = new SimpleDateFormat("h:mm a", Locale.US);
-                                editAddDateTime.setText(formatter.format(tripTime));
                                 mHour = hourOfDay;
                                 mMinute = minute;
-                                Log.d("AddDateFragment", " * * * time : " + mHour);
+
+                                Time tripTime = new Time(hourOfDay, minute,0);  // seconds by default set to zero
+                                Format formatScreen = new SimpleDateFormat("h:mm a", Locale.US);
+                                Format formatData = new SimpleDateFormat("hh:mm:ss", Locale.US);
+                                editAddDateTime.setText(formatScreen.format(tripTime));
+                                valueTime = formatData.format(tripTime);
+
+                                if (valueTime == null || valueDate == null) {
+                                    buttonAddDateNext.setEnabled(false);
+                                } else {
+                                    buttonAddDateNext.setEnabled(true);
+                                }
+                                Log.d("AddDateFragment", " * * * time : " + valueTime);
                             }
                         }, mHour, mMinute,false);
                 timePickerDialog.show();
