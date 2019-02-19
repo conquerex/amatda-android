@@ -38,7 +38,6 @@ public class CarrierMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrier_main);
-        Realm.init(this);
 
         CarrierMainFragment carrierMainFragment =
                 (CarrierMainFragment) getSupportFragmentManager().findFragmentById(R.id.layoutCarrierMain);
