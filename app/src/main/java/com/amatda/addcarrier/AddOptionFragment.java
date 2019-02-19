@@ -126,6 +126,8 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
             mapOptions.put(i, false);
         }
 
+        enableButton();
+
         return view;
     }
 
@@ -152,6 +154,8 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                         Log.d("AddOptionFragment", " * * * options : " + (i+1));
                     }
                 }
+
+
                 break;
             case R.id.viewAddOptionNone:
                 changeOptionStatus(checkAddOptionNone, textAddOptionNone, 0);
@@ -177,6 +181,7 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
             default:
                 break;
         }
+        enableButton();
     }
 
     private void changeOptionStatus(CheckBox checkBox, TextView textView, int valueOption) {
@@ -218,6 +223,19 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
             textAddOptionNone.setTextColor(getResources().getColor(R.color.gray));
             mapOptions.put(0, false);
         }
-        
+    }
+
+    private void enableButton() {
+        if (checkAddOptionNone.isChecked()) {
+            buttonAddOptionNext.setEnabled(false);
+        } else {
+            for (int i = 1 ; i < mapOptions.size() ; i++) {
+                if (mapOptions.get(i)) {
+                    buttonAddOptionNext.setEnabled(true);
+                    return;
+                }
+            }
+            buttonAddOptionNext.setEnabled(false);
+        }
     }
 }
