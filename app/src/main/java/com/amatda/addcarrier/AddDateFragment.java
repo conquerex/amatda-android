@@ -30,8 +30,6 @@ import java.util.Locale;
 public class AddDateFragment extends Fragment
         implements View.OnClickListener {
 
-    private static final String KEY_VALUE_CITY = "KEY_VALUE_CITY";
-
     private Button buttonAddDateNext;
     private EditText editAddDateDay;
     private EditText editAddDateTime;
@@ -54,7 +52,7 @@ public class AddDateFragment extends Fragment
     public static AddDateFragment newInstance(int valueCity) {
         AddDateFragment fragment = new AddDateFragment();
         Bundle args = new Bundle();
-        args.putInt(KEY_VALUE_CITY, valueCity);
+        args.putInt(AddCarrierActivity.KEY_VALUE_CITY, valueCity);
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,7 +71,7 @@ public class AddDateFragment extends Fragment
         editAddDateTime.setOnClickListener(this);
 
         if (getArguments() != null) {
-            valueCity = getArguments().getInt(KEY_VALUE_CITY);
+            valueCity = getArguments().getInt(AddCarrierActivity.KEY_VALUE_CITY);
             Log.d("AddDateFragment", " * * * city : " + valueCity);
         }
 

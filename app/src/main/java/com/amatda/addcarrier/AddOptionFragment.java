@@ -16,13 +16,17 @@ import com.amatda.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddOptionFragment extends Fragment implements View.OnClickListener {
+public class AddOptionFragment extends Fragment
+        implements View.OnClickListener, AddOptionContract.View {
 
-    private static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
     private static final int SIZE_OPTIONS = 7;
+
+    public AddOptionContract.Presenter mPresenter;
 
 //    private View layoutAddOptionNone;
 //    private View layoutAddOptionEssential;
@@ -56,6 +60,8 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
 
     private ArrayList<Integer> listOptions;
     private HashMap<Integer, Boolean> mapOptions;
+    private int valueCity;
+    private String valueDate;
 
     public AddOptionFragment() {
         // Required empty public constructor
@@ -64,7 +70,8 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     public static AddOptionFragment newInstance(int valueCity, String valueDate) {
         AddOptionFragment fragment = new AddOptionFragment();
         Bundle args = new Bundle();
-        args.putInt(KEY_VALUE_DATE, valueCity);
+        args.putInt(AddCarrierActivity.KEY_VALUE_CITY, valueCity);
+        args.putString(AddCarrierActivity.KEY_VALUE_DATE, valueDate);
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,6 +80,13 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_option, container, false);
+        mPresenter = new AddOptionPresenter(this);
+
+        if (getArguments() != null) {
+            valueCity = getArguments().getInt(AddCarrierActivity.KEY_VALUE_CITY);
+            valueDate = getArguments().getString(AddCarrierActivity.KEY_VALUE_DATE);
+            Log.d("AddDateFragment", " * * * args : \n" + valueCity + " / " + valueDate);
+        }
 
 //        layoutAddOptionNone = view.findViewById(R.id.layoutAddOptionNone);
 //        layoutAddOptionEssential = view.findViewById(R.id.layoutAddOptionEssential);
@@ -154,8 +168,12 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                         Log.d("AddOptionFragment", " * * * options : " + (i+1));
                     }
                 }
-
-
+                for (int i = 0 ; i < mapOptions.size() ; i++) {
+                    if (mapOptions.get(i)) {
+                        listOptions.add(i);
+                    }
+                }
+                mPresenter.makeCarrier(valueCity, valueDate, listOptions);
                 break;
             case R.id.viewAddOptionNone:
                 changeOptionStatus(checkAddOptionNone, textAddOptionNone, 0);
@@ -226,16 +244,17 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     }
 
     private void enableButton() {
-        if (checkAddOptionNone.isChecked()) {
-            buttonAddOptionNext.setEnabled(false);
-        } else {
-            for (int i = 1 ; i < mapOptions.size() ; i++) {
-                if (mapOptions.get(i)) {
-                    buttonAddOptionNext.setEnabled(true);
-                    return;
-                }
+        for (int i = 0 ; i < mapOptions.size() ; i++) {
+            if (mapOptions.get(i)) {
+                buttonAddOptionNext.setEnabled(true);
+                return;
             }
-            buttonAddOptionNext.setEnabled(false);
         }
+        buttonAddOptionNext.setEnabled(false);
+    }
+
+    @Override
+    public void setPresenter(AddOptionContract.Presenter presenter) {
+        mPresenter = checkNotNull(presenter);
     }
 }

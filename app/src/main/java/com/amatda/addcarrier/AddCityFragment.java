@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,8 @@ import com.amatda.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 /**
  * city_id - 나라 이름
  *   1 - 일본 오사카
@@ -30,6 +31,8 @@ import java.util.HashMap;
  *   7 - 베트남 다낭
  */
 public class AddCityFragment extends Fragment {
+
+    private AddOptionContract.Presenter mPresenter;
 
     private Button buttonAddCityNext;
     private Spinner spinnerAddCity;

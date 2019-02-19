@@ -10,6 +10,12 @@ import com.amatda.util.ActivityUtils;
 
 public class AddCarrierActivity extends AppCompatActivity {
 
+    public static final String KEY_VALUE_CITY = "KEY_VALUE_CITY";
+    public static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
+    public static final String KEY_VALUE_OPTION = "KEY_VALUE_OPTION";
+
+//    private AddOptionPresenter mPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +28,10 @@ public class AddCarrierActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), fragment, R.id.layoutAddCarrier);
         }
+
+//        AddOptionFragment fragment2 =
+//                (AddOptionFragment) getSupportFragmentManager().findFragmentById(R.id.layoutAddCarrier);
+//        mPresenter = new AddOptionPresenter(fragment2);
     }
 
     public static void startAddCarrierActivity(Context context) {
