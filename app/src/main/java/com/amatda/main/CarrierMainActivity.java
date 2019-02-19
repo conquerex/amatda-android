@@ -16,29 +16,34 @@
 
 package com.amatda.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.test.espresso.IdlingResource;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.amatda.Injection;
 import com.amatda.R;
 import com.amatda.util.ActivityUtils;
 import com.amatda.util.EspressoIdlingResource;
 
-import io.realm.Realm;
-
 public class CarrierMainActivity extends AppCompatActivity {
 
-//    private DrawerLayout mDrawerLayout;
-
     private CarrierMainPresenter mCarrierMainPresenter;
+    private long backKeyPressedTime = 0;
+    private Toast toast;
+
+    public static void startCarrierMainActivity(Context context) {
+        Intent intent = new Intent(context, CarrierMainActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrier_main);
-        Realm.init(this);
 
         CarrierMainFragment carrierMainFragment =
                 (CarrierMainFragment) getSupportFragmentManager().findFragmentById(R.id.layoutCarrierMain);
@@ -48,9 +53,6 @@ public class CarrierMainActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), carrierMainFragment, R.id.layoutCarrierMain);
         }
-
-        // Api test
-//        mCarrierMainPresenter.getJKStest();
 
         // Create the presenter
         mCarrierMainPresenter = new CarrierMainPresenter(
@@ -71,5 +73,20 @@ public class CarrierMainActivity extends AppCompatActivity {
     @VisibleForTesting
     public IdlingResource getCountingIdlingResource() {
         return EspressoIdlingResource.getIdlingResource();
+    }
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(getApplicationContext(), "Back 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            finish();
+            toast.cancel();
+        }
     }
 }

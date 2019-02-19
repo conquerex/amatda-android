@@ -26,6 +26,7 @@ public class AddCarrierActivity extends AppCompatActivity {
 
     public static void startAddCarrierActivity(Context context) {
         Intent intent = new Intent(context, AddCarrierActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 }

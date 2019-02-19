@@ -12,19 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".addcarrier.AddCarrierActivity"></activity>
-        <activity
-            android:name=".main.CarrierMainActivity"
-            android:theme="@style/AppTheme.OverlapSystemBar">
+        <activity android:name=".splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".addcarrier.AddCarrierActivity" />
+        <activity
+            android:name=".main.CarrierMainActivity"
+            android:theme="@style/AppTheme.OverlapSystemBar">
+        </activity>
         <activity android:name=".addedittask.AddEditTaskActivity" />
-
     </application>
 
 </manifest>

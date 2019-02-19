@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -54,6 +55,7 @@ public class AddCityFragment extends Fragment {
         spinnerAddCity = view.findViewById(R.id.spinnerAddCity);
 
         mapCity = new HashMap<>();
+        mapCity.put(0, "도시를 선택하세요");
         mapCity.put(1, "일본 오사카");
         mapCity.put(2, "중국 베이징");
         mapCity.put(3, "미국 하와이");
@@ -63,13 +65,29 @@ public class AddCityFragment extends Fragment {
         mapCity.put(7, "베트남 다낭");
 
         listCity = new ArrayList<>();
-        for (int i = 1; i < mapCity.size() + 1; i++) {
+        for (int i = 0; i < mapCity.size(); i++) {
 //            Log.d("AddCityFragment", " * * * city : " + mapCity.get(i));
             listCity.add(mapCity.get(i));
         }
 
         // Using ArrayAdapter
         spinnerAdapter = new ArrayAdapter(getContext(), R.layout.support_simple_spinner_dropdown_item, listCity);
+        spinnerAddCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (spinnerAddCity.getSelectedItemPosition() > 0) {
+                    buttonAddCityNext.setEnabled(true);
+                } else {
+                    buttonAddCityNext.setEnabled(false);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                buttonAddCityNext.setEnabled(false);
+            }
+        });
+
         spinnerAddCity.setAdapter(spinnerAdapter);
 
         buttonAddCityNext.setOnClickListener(v -> {
