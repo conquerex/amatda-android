@@ -89,9 +89,9 @@ public class CarrierMainPresenter implements CarrierMainContract.Presenter {
         realm = Realm.getDefaultInstance();
         // Todo : where 조건이 필요
         RealmResults<MockPreparationData> results = realm.where(MockPreparationData.class).findAll();
-        if (results.isEmpty()) {
+        if (results.isEmpty() || results.size() < 5) {
             realm.beginTransaction();
-            for (int i = 0; i < 3; i++) {
+            for (int i = 4; i < 11; i++) {
                 MockPreparationData data = new MockPreparationData();
                 data.setId(i);
                 data.setCreateDate(System.currentTimeMillis());

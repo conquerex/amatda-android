@@ -15,7 +15,7 @@ public class NetworkSetting {
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://13.125.237.4:8080/")
+                .baseUrl("http://amatda.kro.kr:8080/nexters_project/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

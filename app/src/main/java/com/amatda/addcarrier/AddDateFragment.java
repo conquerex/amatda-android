@@ -94,6 +94,9 @@ public class AddDateFragment extends Fragment
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                /**
+                                 *
+                                 */
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.set(year, month, dayOfMonth);
                                 SimpleDateFormat format = new SimpleDateFormat("yyyy.MM.dd");
@@ -112,6 +115,9 @@ public class AddDateFragment extends Fragment
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                                /**
+                                 *
+                                 */
                                 Time tripTime = new Time(hourOfDay, minute,0);  // seconds by default set to zero
                                 Format formatter = new SimpleDateFormat("h:mm a", Locale.US);
                                 editAddDateTime.setText(formatter.format(tripTime));
