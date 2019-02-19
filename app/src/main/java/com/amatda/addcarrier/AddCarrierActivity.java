@@ -28,4 +28,10 @@ public class AddCarrierActivity extends AppCompatActivity {
         Intent intent = new Intent(context, AddCarrierActivity.class);
         context.startActivity(intent);
     }
+
+    public static void startAddCarrierActivityfromSplash(Context context) {
+        Intent intent = new Intent(context, AddCarrierActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        context.startActivity(intent);
+    }
 }

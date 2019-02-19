@@ -16,6 +16,8 @@
 
 package com.amatda.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.test.espresso.IdlingResource;
@@ -30,9 +32,12 @@ import io.realm.Realm;
 
 public class CarrierMainActivity extends AppCompatActivity {
 
-//    private DrawerLayout mDrawerLayout;
-
     private CarrierMainPresenter mCarrierMainPresenter;
+
+    public static void startCarrierMainActivity(Context context) {
+        Intent intent = new Intent(context, CarrierMainActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +52,6 @@ public class CarrierMainActivity extends AppCompatActivity {
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), carrierMainFragment, R.id.layoutCarrierMain);
         }
-
-        // Api test
-//        mCarrierMainPresenter.getJKStest();
 
         // Create the presenter
         mCarrierMainPresenter = new CarrierMainPresenter(

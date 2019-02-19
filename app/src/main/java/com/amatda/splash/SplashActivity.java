@@ -1,12 +1,15 @@
 package com.amatda.splash;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.amatda.R;
+import com.amatda.addcarrier.AddCarrierActivity;
 import com.amatda.data.source.Carrier;
+import com.amatda.main.CarrierMainActivity;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -28,7 +31,9 @@ public class SplashActivity extends Activity {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Carrier> query = realm.where(Carrier.class);
         RealmResults<Carrier> results = query.findAll();
+
         if (results.isEmpty()) {
+            AddCarrierActivity.startAddCarrierActivityfromSplash(getApplicationContext());
             Log.d("SplashActivity", " * * * result empty");
             for (int i = 1; i < 4; i++) {
                 realm.beginTransaction();
@@ -36,6 +41,7 @@ public class SplashActivity extends Activity {
                 realm.commitTransaction();
             }
         } else {
+            CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
             Log.d("SplashActivity", " * * * result : " + results.toString());
         }
 
