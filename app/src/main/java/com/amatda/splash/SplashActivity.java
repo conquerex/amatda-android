@@ -38,15 +38,9 @@ public class SplashActivity extends Activity {
                 if (results.isEmpty()) {
                     AddCarrierActivity.startAddCarrierActivity(getApplicationContext());
                     Log.d("SplashActivity", " * * * result empty");
-                    /*
-                    for (int i = 1; i < 4; i++) {
-                        realm.beginTransaction();
-                        CarrierData carrier = realm.createObject(CarrierData.class, i);
-                        realm.commitTransaction();
-                    }
-                    */
                 } else {
-                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext(), 0);
+                    CarrierData carrierData = realm.where(CarrierData.class).findAll().last();
+                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext(), carrierData.getCarrierId());
                     Log.d("SplashActivity", " * * * result : " + results.toString());
                 }
                 finish();

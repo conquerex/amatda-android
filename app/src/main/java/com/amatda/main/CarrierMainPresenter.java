@@ -69,12 +69,28 @@ public class CarrierMainPresenter implements CarrierMainContract.Presenter {
 
     public void getListAll(int cId) {
         apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
-
         Call<Void> call = apiInterface.getListAll(cId);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
 
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getInfoCarrier(int cId) {
+        apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
+        Call<Void> call = apiInterface.getInfoCarrier(cId);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                //
             }
 
             @Override

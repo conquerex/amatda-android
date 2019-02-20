@@ -11,8 +11,11 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("nexters_project/pack/listall")
+    @GET("pack/listall")
     Call<Void> getListAll(@Query("cId") int cId);
+
+    @GET("carrier")
+    Call<Void> getInfoCarrier(@Query("cId") int cId);
 
     @FormUrlEncoded
     @POST("carrier")

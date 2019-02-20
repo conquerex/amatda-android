@@ -32,6 +32,7 @@ import com.amatda.util.EspressoIdlingResource;
 public class CarrierMainActivity extends AppCompatActivity {
 
     public static final String EXTRA_KEY_CARRIER_ID = "EXTRA_KEY_CARRIER_ID";
+    public static final String KEY_CARRIER_ID = "KEY_CARRIER_ID";
 
     private CarrierMainPresenter mCarrierMainPresenter;
     private long backKeyPressedTime = 0;
@@ -52,7 +53,7 @@ public class CarrierMainActivity extends AppCompatActivity {
                 (CarrierMainFragment) getSupportFragmentManager().findFragmentById(R.id.layoutCarrierMain);
         if (carrierMainFragment == null) {
             // Create the fragment
-            carrierMainFragment = CarrierMainFragment.newInstance();
+            carrierMainFragment = CarrierMainFragment.newInstance(getIntent().getIntExtra(CarrierMainActivity.EXTRA_KEY_CARRIER_ID, 0));
             ActivityUtils.addFragmentToActivity(
                     getSupportFragmentManager(), carrierMainFragment, R.id.layoutCarrierMain);
         }

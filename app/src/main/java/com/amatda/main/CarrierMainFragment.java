@@ -66,12 +66,18 @@ public class CarrierMainFragment extends Fragment
     private View viewCarrierMainCancelScreen;
     private ImageView imageCarrierMainSample;
 
+    private int cId;
+
     public CarrierMainFragment() {
         // Requires empty public constructor
     }
 
-    public static CarrierMainFragment newInstance() {
-        return new CarrierMainFragment();
+    public static CarrierMainFragment newInstance(int cId) {
+        Bundle args = new Bundle();
+        args.putInt(CarrierMainActivity.KEY_CARRIER_ID, cId);
+        CarrierMainFragment fragment = new CarrierMainFragment();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
@@ -106,6 +112,14 @@ public class CarrierMainFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_carrier_main, container, false);
+
+        if (getArguments() != null) {
+            cId = getArguments().getInt(CarrierMainActivity.KEY_CARRIER_ID);
+        } else {
+            cId = 0;
+        }
+
+        mPresenter.getInfoCarrier(cId);
 
         layoutCarrierMainBottomSheet = view.findViewById(R.id.layoutCarrierMainBottomSheet);
         imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
@@ -187,7 +201,7 @@ public class CarrierMainFragment extends Fragment
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 // todo : Remove soon
-                mPresenter.getListAll(3);
+                mPresenter.getListAll(cId);
                 break;
             case R.id.imageCarrierMainSetting:
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);

@@ -43,5 +43,7 @@ public interface CarrierMainContract {
         void addNewTask();
 
         void getListAll(int cId);
+
+        void getInfoCarrier(int cId);
     }
 }
