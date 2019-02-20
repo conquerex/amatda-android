@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.amatda.R;
+import com.amatda.main.CarrierMainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -256,5 +257,11 @@ public class AddOptionFragment extends Fragment
     @Override
     public void setPresenter(AddOptionContract.Presenter presenter) {
         mPresenter = checkNotNull(presenter);
+    }
+
+    @Override
+    public void onStartCarrierMain(int cId) {
+        CarrierMainActivity.startCarrierMainActivity(getContext(), cId);
+        getActivity().finish();
     }
 }

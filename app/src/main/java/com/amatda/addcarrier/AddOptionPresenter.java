@@ -3,11 +3,13 @@ package com.amatda.addcarrier;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.amatda.data.source.CarrierData;
 import com.amatda.util.ApiInterface;
 import com.amatda.util.NetworkSetting;
 
 import java.util.ArrayList;
 
+import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,6 +21,7 @@ public class AddOptionPresenter implements AddOptionContract.Presenter {
     private final AddOptionContract.View mView;
 
     private ApiInterface apiInterface;
+//    private Realm realm = Realm.getDefaultInstance();
 
     public AddOptionPresenter(@NonNull AddOptionContract.View mView) {
         this.mView = checkNotNull(mView, "mView cannot be null!");
@@ -38,6 +41,11 @@ public class AddOptionPresenter implements AddOptionContract.Presenter {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
                 Log.d("AddOptionPresenter", " * * * cId : " + response.body().toString());
+                Realm realm = Realm.getDefaultInstance();
+                realm.beginTransaction();
+                realm.createObject(CarrierData.class, response.body());
+                realm.commitTransaction();
+                mView.onStartCarrierMain(response.body());
             }
 
             @Override

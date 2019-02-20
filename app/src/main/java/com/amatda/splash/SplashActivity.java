@@ -46,7 +46,7 @@ public class SplashActivity extends Activity {
                     }
                     */
                 } else {
-                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
+                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext(), 0);
                     Log.d("SplashActivity", " * * * result : " + results.toString());
                 }
                 finish();

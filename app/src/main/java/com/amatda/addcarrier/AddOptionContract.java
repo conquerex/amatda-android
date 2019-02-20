@@ -29,7 +29,7 @@ import java.util.List;
 public interface AddOptionContract {
 
     interface View extends BaseView<Presenter> {
-        //
+        void onStartCarrierMain(int cId);
     }
 
     interface Presenter extends BasePresenter {

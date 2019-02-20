@@ -31,12 +31,15 @@ import com.amatda.util.EspressoIdlingResource;
 
 public class CarrierMainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_KEY_CARRIER_ID = "EXTRA_KEY_CARRIER_ID";
+
     private CarrierMainPresenter mCarrierMainPresenter;
     private long backKeyPressedTime = 0;
     private Toast toast;
 
-    public static void startCarrierMainActivity(Context context) {
+    public static void startCarrierMainActivity(Context context, int cId) {
         Intent intent = new Intent(context, CarrierMainActivity.class);
+        intent.putExtra(EXTRA_KEY_CARRIER_ID, cId);
         context.startActivity(intent);
     }
 
