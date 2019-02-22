@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="city">
+
+        <item>일본 오사카</item>
+        <item>일본 교토</item>
+        <item>일본 고베</item>
+        <item>일본 나라</item>
+        <item>하와이</item>
+        <item>독일 베를린</item>
+        <item>중국 베이징</item>
+        <item>미주 뉴욕</item>
+        <item>프랑스 파리</item>
+        <item>프랑스 베르사유</item>
+        <item>프랑스 몽생미셀</item>
+        <item>프랑스 스트라스부르</item>
+    </string-array>
+
+</resources>
+
