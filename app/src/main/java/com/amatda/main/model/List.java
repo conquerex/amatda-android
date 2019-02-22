@@ -1,36 +1,27 @@
 package com.amatda.main.model;
 
-import java.util.Arrays;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
 
 /**
  * Created by barley on 22/02/2019
  */
 public class List {
-    private Carrier[] carrier;
+    @SerializedName("carrier")
+    @Expose
+    private ArrayList<Carrier> carrier;
 
-    private Opt[] opt;
-
-    public Carrier[] getCarrier() {
-        return carrier;
-    }
-
-    public void setCarrier(Carrier[] carrier) {
-        this.carrier = carrier;
-    }
-
-    public Opt[] getOpt() {
-        return opt;
-    }
-
-    public void setOpt(Opt[] opt) {
-        this.opt = opt;
-    }
+    @SerializedName("opt")
+    @Expose
+    private ArrayList<Opt> opt;
 
     @Override
     public String toString() {
         return "List{" +
-                "carrier=" + Arrays.toString(carrier) +
-                ", opt=" + Arrays.toString(opt) +
+                "carrier=" + carrier +
+                ", opt=" + opt +
                 '}';
     }
 }

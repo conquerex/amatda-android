@@ -1,16 +1,27 @@
 package com.amatda.main.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by barley on 22/02/2019
  */
 public class Carrier {
+    @SerializedName("cName")
+    @Expose
     private String cName;
 
-    private String cCountry;
+    @SerializedName("cCountry")
+    @Expose
+    private int cCountry;
 
+    @SerializedName("startDate")
+    @Expose
     private String startDate;
 
-    private String cId;
+    @SerializedName("cId")
+    @Expose
+    private int cId;
 
     public String getcName() {
         return cName;
@@ -20,11 +31,11 @@ public class Carrier {
         this.cName = cName;
     }
 
-    public String getcCountry() {
+    public int getcCountry() {
         return cCountry;
     }
 
-    public void setcCountry(String cCountry) {
+    public void setcCountry(int cCountry) {
         this.cCountry = cCountry;
     }
 
@@ -36,11 +47,11 @@ public class Carrier {
         this.startDate = startDate;
     }
 
-    public String getcId() {
+    public int getcId() {
         return cId;
     }
 
-    public void setcId(String cId) {
+    public void setcId(int cId) {
         this.cId = cId;
     }
 
@@ -48,9 +59,9 @@ public class Carrier {
     public String toString() {
         return "Carrier{" +
                 "cName='" + cName + '\'' +
-                ", cCountry='" + cCountry + '\'' +
+                ", cCountry=" + cCountry +
                 ", startDate='" + startDate + '\'' +
-                ", cId='" + cId + '\'' +
+                ", cId=" + cId +
                 '}';
     }
 }
