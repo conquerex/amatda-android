@@ -11,14 +11,18 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("pack/listall")
+    @GET("nexters_project/pack/listall")
     Call<Void> getListAll(@Query("cId") int cId);
 
-    @GET("carrier")
+    @GET("nexters_project/carrier")
     Call<Void> getInfoCarrier(@Query("cId") int cId);
 
+    @GET("amatda-spring/weather")
+    Call<Void> getWeather(@Query("city_id") int city_id,
+                          @Query("month") int month);
+
     @FormUrlEncoded
-    @POST("carrier")
+    @POST("nexters_project/carrier")
     Call<Integer> makeCarrier(@Field("cCountry") int cCountry,
                               @Field("startDate") String startDate,
                               @Field("cName") String cName,

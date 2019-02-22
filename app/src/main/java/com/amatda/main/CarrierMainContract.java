@@ -45,5 +45,7 @@ public interface CarrierMainContract {
         void getListAll(int cId);
 
         void getInfoCarrier(int cId);
+
+        void getWeather(int city_id, int month);
     }
 }

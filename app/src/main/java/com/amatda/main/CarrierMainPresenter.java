@@ -101,6 +101,11 @@ public class CarrierMainPresenter implements CarrierMainContract.Presenter {
     }
 
     @Override
+    public void getWeather(int city_id, int month) {
+
+    }
+
+    @Override
     public void start() {
         realm = Realm.getDefaultInstance();
         // Todo : where 조건이 필요
