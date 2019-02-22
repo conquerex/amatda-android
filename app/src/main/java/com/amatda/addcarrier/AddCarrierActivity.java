@@ -12,6 +12,7 @@ public class AddCarrierActivity extends AppCompatActivity {
 
     public static final String KEY_VALUE_CITY = "KEY_VALUE_CITY";
     public static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
+    public static final String KEY_VALUE_DAY = "KEY_VALUE_DAY";
     public static final String KEY_VALUE_OPTION = "KEY_VALUE_OPTION";
 
     @Override

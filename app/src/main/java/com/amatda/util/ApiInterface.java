@@ -21,5 +21,6 @@ public interface ApiInterface {
     @POST("carrier")
     Call<Integer> makeCarrier(@Field("cCountry") int cCountry,
                               @Field("startDate") String startDate,
+                              @Field("cName") String cName,
                               @Field("category_list") ArrayList<Integer> category_list);
 }

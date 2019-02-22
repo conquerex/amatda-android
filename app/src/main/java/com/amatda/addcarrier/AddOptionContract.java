@@ -33,6 +33,6 @@ public interface AddOptionContract {
     }
 
     interface Presenter extends BasePresenter {
-        void makeCarrier(int cCountry, String startDate, ArrayList<Integer> category_list);
+        void makeCarrier(int cCountry, String startDate, String dayDate, ArrayList<Integer> category_list);
     }
 }

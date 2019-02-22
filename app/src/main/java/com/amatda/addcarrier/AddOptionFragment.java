@@ -63,16 +63,18 @@ public class AddOptionFragment extends Fragment
     private HashMap<Integer, Boolean> mapOptions;
     private int valueCity;
     private String valueDate;
+    private String dayDate;
 
     public AddOptionFragment() {
         // Required empty public constructor
     }
 
-    public static AddOptionFragment newInstance(int valueCity, String valueDate) {
+    public static AddOptionFragment newInstance(int valueCity, String valueDate, String dayDate) {
         AddOptionFragment fragment = new AddOptionFragment();
         Bundle args = new Bundle();
         args.putInt(AddCarrierActivity.KEY_VALUE_CITY, valueCity);
         args.putString(AddCarrierActivity.KEY_VALUE_DATE, valueDate);
+        args.putString(AddCarrierActivity.KEY_VALUE_DAY, dayDate);
         fragment.setArguments(args);
         return fragment;
     }
@@ -86,6 +88,7 @@ public class AddOptionFragment extends Fragment
         if (getArguments() != null) {
             valueCity = getArguments().getInt(AddCarrierActivity.KEY_VALUE_CITY);
             valueDate = getArguments().getString(AddCarrierActivity.KEY_VALUE_DATE);
+            dayDate = getArguments().getString(AddCarrierActivity.KEY_VALUE_DAY);
             Log.d("AddDateFragment", " * * * args : \n" + valueCity + " / " + valueDate);
         }
 
@@ -174,7 +177,7 @@ public class AddOptionFragment extends Fragment
                         listOptions.add(i);
                     }
                 }
-                mPresenter.makeCarrier(valueCity, valueDate, listOptions);
+                mPresenter.makeCarrier(valueCity, valueDate, dayDate, listOptions);
                 break;
             case R.id.viewAddOptionNone:
                 changeOptionStatus(checkAddOptionNone, textAddOptionNone, 0);

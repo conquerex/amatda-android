@@ -34,9 +34,9 @@ public class AddOptionPresenter implements AddOptionContract.Presenter {
     }
 
     @Override
-    public void makeCarrier(int cCountry, String startDate, ArrayList<Integer> category_list) {
+    public void makeCarrier(int cCountry, String startDate, String dayDate, ArrayList<Integer> category_list) {
         apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
-        Call<Integer> call = apiInterface.makeCarrier(cCountry, startDate, category_list);
+        Call<Integer> call = apiInterface.makeCarrier(cCountry, startDate, dayDate, category_list);
         call.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
