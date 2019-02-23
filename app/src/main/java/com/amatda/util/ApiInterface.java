@@ -1,5 +1,7 @@
 package com.amatda.util;
 
+import com.amatda.main.model.CarrierDto;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -15,7 +17,7 @@ public interface ApiInterface {
     Call<Void> getListAll(@Query("cId") int cId);
 
     @GET("nexters_project/carrier")
-    Call<Void> getInfoCarrier(@Query("cId") int cId);
+    Call<CarrierDto> getInfoCarrier(@Query("cId") int cId);
 
     @GET("amatda-spring/weather")
     Call<Void> getWeather(@Query("city_id") int city_id,

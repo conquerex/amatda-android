@@ -17,6 +17,22 @@ public class List {
     @Expose
     private ArrayList<Opt> opt;
 
+    public ArrayList<Carrier> getCarrier() {
+        return carrier;
+    }
+
+    public void setCarrier(ArrayList<Carrier> carrier) {
+        this.carrier = carrier;
+    }
+
+    public ArrayList<Opt> getOpt() {
+        return opt;
+    }
+
+    public void setOpt(ArrayList<Opt> opt) {
+        this.opt = opt;
+    }
+
     @Override
     public String toString() {
         return "List{" +

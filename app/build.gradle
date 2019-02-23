@@ -134,4 +134,6 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
 
     implementation "com.airbnb.android:lottie:$rootProject.lottieVersion"
+    implementation "com.squareup.retrofit2:converter-jackson:2.5.0"
+
 }
