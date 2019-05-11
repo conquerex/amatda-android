@@ -1,7 +1,5 @@
 package com.amatda.util;
 
-import com.amatda.main.model.CarrierDto;
-
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -13,12 +11,12 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-    @GET("nexters_project/pack/listall")
-    Call<Void> getListAll(@Query("cId") int cId);
+    /*@GET("nexters_project/pack/listall")
+    Call<Void> getListAll(@Query("cId") int cId);*/
 
-    @GET("nexters_project/carrier")
-    Call<CarrierDto> getInfoCarrier(@Query("cId") int cId);
-
+    /*@GET("nexters_project/carrier")
+    Call<CarrierDto> getInfoCarrier(@Query("cId") int cId);*/
+/*
     @GET("amatda-spring/weather")
     Call<Void> getWeather(@Query("city_id") int city_id,
                           @Query("month") int month);
@@ -28,5 +26,5 @@ public interface ApiInterface {
     Call<Integer> makeCarrier(@Field("cCountry") int cCountry,
                               @Field("startDate") String startDate,
                               @Field("cName") String cName,
-                              @Field("category_list") ArrayList<Integer> category_list);
+                              @Field("category_list") ArrayList<Integer> category_list);*/
 }

@@ -29,7 +29,6 @@ import com.amatda.main.domain.usecase.ActivateTask;
 import com.amatda.main.domain.usecase.ClearCompleteTasks;
 import com.amatda.main.domain.usecase.CompleteTask;
 import com.amatda.main.domain.usecase.GetTasks;
-import com.amatda.main.model.CarrierDto;
 import com.amatda.util.ApiInterface;
 import com.amatda.util.NetworkSetting;
 
@@ -69,7 +68,7 @@ public class CarrierMainPresenter implements CarrierMainContract.Presenter {
     }
 
     public void getListAll(int cId) {
-        apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
+        /*apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
         Call<Void> call = apiInterface.getListAll(cId);
         call.enqueue(new Callback<Void>() {
             @Override
@@ -81,12 +80,13 @@ public class CarrierMainPresenter implements CarrierMainContract.Presenter {
             public void onFailure(Call<Void> call, Throwable t) {
 
             }
-        });
+        });*/
     }
 
     @Override
     public void getInfoCarrier(int cId) {
-        apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
+
+        /*apiInterface = NetworkSetting.getClient().create(ApiInterface.class);
         Call<CarrierDto> call = apiInterface.getInfoCarrier(cId);
         call.enqueue(new Callback<CarrierDto>() {
             @Override
@@ -98,7 +98,7 @@ public class CarrierMainPresenter implements CarrierMainContract.Presenter {
             public void onFailure(Call<CarrierDto> call, Throwable t) {
 
             }
-        });
+        });*/
     }
 
     @Override
