@@ -1,4 +1,4 @@
-package com.amatda.data.source;
+package com.amatda.main.model;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;

@@ -8,7 +8,7 @@ import android.util.Log;
 import com.airbnb.lottie.LottieAnimationView;
 import com.amatda.R;
 import com.amatda.addcarrier.AddCarrierActivity;
-import com.amatda.data.source.CarrierData;
+import com.amatda.main.model.CarrierData;
 import com.amatda.main.CarrierMainActivity;
 
 import io.realm.Realm;

@@ -36,7 +36,7 @@ import com.amatda.R;
 import com.amatda.addcarrier.AddCarrierActivity;
 import com.amatda.addedittask.AddEditTaskActivity;
 import com.amatda.data.MockPreparationData;
-import com.amatda.data.source.CarrierData;
+import com.amatda.main.model.CarrierData;
 import com.amatda.main.domain.model.Task;
 import com.amatda.util.CarrierConstant;
 
@@ -44,7 +44,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 

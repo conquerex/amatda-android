@@ -2,7 +2,7 @@ package com.amatda.addcarrier;
 
 import android.support.annotation.NonNull;
 
-import com.amatda.data.source.CarrierData;
+import com.amatda.main.model.CarrierData;
 import com.amatda.util.ApiInterface;
 
 import java.util.ArrayList;
