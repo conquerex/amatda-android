@@ -141,7 +141,27 @@
         android:visibility="gone" />
 
     <LinearLayout
-        android:id="@+id/layoutCarrierMainBottomSheet"
+        android:id="@+id/layoutCarrierMainBottomMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_sheet"
+        android:elevation="16dp"
+        android:orientation="vertical"
+        app:behavior_hideable="true"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <ImageView
+            android:id="@+id/imageCarrierMainSample2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_assignment_turned_in_24dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutCarrierMainBottomPlus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_bottom_sheet"

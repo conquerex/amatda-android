@@ -60,9 +60,11 @@ public class CarrierMainFragment extends Fragment
     private PreparationBeforeListAdapter mAfterListAdapter;
     private ArrayList<MockPreparationData> mBeforeDatas;
     private ArrayList<MockPreparationData> mAfterDatas;
-    private BottomSheetBehavior bottomSheetBehavior;
+    private BottomSheetBehavior bottomMenuBehavior;
+    private BottomSheetBehavior bottomPlusBehavior;
 
-    private LinearLayout layoutCarrierMainBottomSheet;
+    private LinearLayout layoutCarrierMainBottomMenu;
+    private LinearLayout layoutCarrierMainBottomPlus;
     private FloatingActionButton fabCarrierAddPreparation;
     private RecyclerView recyclerCarrierMainBeforeList;
     private ImageView imageCarrierMainMenu;
@@ -125,7 +127,8 @@ public class CarrierMainFragment extends Fragment
 
 //        mPresenter.getInfoCarrier(cId);
 
-        layoutCarrierMainBottomSheet = view.findViewById(R.id.layoutCarrierMainBottomSheet);
+        layoutCarrierMainBottomMenu = view.findViewById(R.id.layoutCarrierMainBottomMenu);
+        layoutCarrierMainBottomPlus = view.findViewById(R.id.layoutCarrierMainBottomPlus);
         imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
         imageCarrierMainSetting = view.findViewById(R.id.imageCarrierMainSetting);
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
@@ -138,6 +141,8 @@ public class CarrierMainFragment extends Fragment
         imageCarrierMainSetting.setOnClickListener(this);
         viewCarrierMainCancelScreen.setOnClickListener(this);
         imageCarrierMainSample.setOnClickListener(this);
+        layoutCarrierMainBottomMenu.setOnClickListener(this);
+        layoutCarrierMainBottomPlus.setOnClickListener(this);
 
         // Set up floating action button
         fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
@@ -147,6 +152,7 @@ public class CarrierMainFragment extends Fragment
             @Override
             public void onClick(View v) {
                 mPresenter.addNewTask();
+                fabCarrierAddPreparation.setVisibility(View.GONE);
             }
         });
 
@@ -171,8 +177,8 @@ public class CarrierMainFragment extends Fragment
         recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
         mAfterListAdapter.notifyDataSetChanged();
 
-        bottomSheetBehavior = BottomSheetBehavior.from(layoutCarrierMainBottomSheet);
-        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+        bottomMenuBehavior = BottomSheetBehavior.from(layoutCarrierMainBottomMenu);
+        bottomMenuBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState) {
@@ -191,7 +197,29 @@ public class CarrierMainFragment extends Fragment
                 // -1이면 숨김 상태
             }
         });
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        bottomMenuBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+        bottomPlusBehavior = BottomSheetBehavior.from(layoutCarrierMainBottomPlus);
+        bottomPlusBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+                switch (newState) {
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+                // Slide ...
+                // 1이면 완전 펼쳐진 상태
+                // 0이면 peekHeight인 상태
+                // -1이면 숨김 상태
+            }
+        });
+        bottomPlusBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
         return view;
     }
@@ -203,8 +231,8 @@ public class CarrierMainFragment extends Fragment
 
     @Override
     public void showAddTask() {
-        Intent intent = new Intent(getContext(), AddEditTaskActivity.class);
-        startActivityForResult(intent, AddEditTaskActivity.REQUEST_ADD_TASK);
+        viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
+        bottomPlusBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
     }
 
     @Override
@@ -212,17 +240,22 @@ public class CarrierMainFragment extends Fragment
         switch (v.getId()) {
             case R.id.imageCarrierMainMenu:
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bottomMenuBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 // todo : Remove soon
                 mPresenter.getListAll(cId);
                 break;
+            case R.id.layoutCarrierMainBottomMenu:
+            case R.id.layoutCarrierMainBottomPlus:
+                break;
             case R.id.imageCarrierMainSetting:
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                bottomMenuBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
             case R.id.viewCarrierMainCancelScreen:
                 viewCarrierMainCancelScreen.setVisibility(View.GONE);
-                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                bottomMenuBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                bottomPlusBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                fabCarrierAddPreparation.setVisibility(View.VISIBLE);
                 break;
             case R.id.imageCarrierMainSample:
                 AddCarrierActivity.startAddCarrierActivity(getContext());
