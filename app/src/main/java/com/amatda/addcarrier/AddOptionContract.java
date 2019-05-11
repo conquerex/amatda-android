@@ -30,6 +30,8 @@ public interface AddOptionContract {
 
     interface View extends BaseView<Presenter> {
         void onStartCarrierMain(int cId);
+
+        void onError();
     }
 
     interface Presenter extends BasePresenter {

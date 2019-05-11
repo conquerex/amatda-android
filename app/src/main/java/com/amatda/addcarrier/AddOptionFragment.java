@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amatda.R;
 import com.amatda.main.CarrierMainActivity;
@@ -266,5 +267,10 @@ public class AddOptionFragment extends Fragment
     public void onStartCarrierMain(int cId) {
         CarrierMainActivity.startCarrierMainActivity(getContext(), cId);
         getActivity().finish();
+    }
+
+    @Override
+    public void onError() {
+        Toast.makeText(getContext(), "Error!! 나중에 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
     }
 }
