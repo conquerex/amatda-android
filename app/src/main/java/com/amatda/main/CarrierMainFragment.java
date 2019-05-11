@@ -94,6 +94,7 @@ public class CarrierMainFragment extends Fragment
         RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
         for (MockPreparationData data : realmResults) {
             mBeforeDatas.add(data);
+            mBeforeDatas.add(data);
         }
     }
 
