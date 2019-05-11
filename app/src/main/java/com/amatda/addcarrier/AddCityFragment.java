@@ -14,11 +14,10 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import com.amatda.R;
+import com.amatda.util.CarrierConstant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * city_id - 나라 이름
@@ -57,15 +56,16 @@ public class AddCityFragment extends Fragment {
         buttonAddCityNext = view.findViewById(R.id.buttonAddCityNext);
         spinnerAddCity = view.findViewById(R.id.spinnerAddCity);
 
-        mapCity = new HashMap<>();
-        mapCity.put(0, "도시를 선택하세요");
-        mapCity.put(1, "일본 오사카");
-        mapCity.put(2, "중국 베이징");
-        mapCity.put(3, "미국 하와이");
-        mapCity.put(4, "미국 뉴욕");
-        mapCity.put(5, "독일 베를린");
-        mapCity.put(6, "프랑스 파리");
-        mapCity.put(7, "베트남 다낭");
+        mapCity = CarrierConstant.CARRIER_CITY_LIST;
+//        mapCity = new HashMap<>();
+//        mapCity.put(0, "도시를 선택하세요");
+//        mapCity.put(1, "일본 오사카");
+//        mapCity.put(2, "중국 베이징");
+//        mapCity.put(3, "미국 하와이");
+//        mapCity.put(4, "미국 뉴욕");
+//        mapCity.put(5, "독일 베를린");
+//        mapCity.put(6, "프랑스 파리");
+//        mapCity.put(7, "베트남 다낭");
 
         listCity = new ArrayList<>();
         for (int i = 0; i < mapCity.size(); i++) {

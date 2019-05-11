@@ -30,12 +30,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.amatda.R;
 import com.amatda.addcarrier.AddCarrierActivity;
 import com.amatda.addedittask.AddEditTaskActivity;
 import com.amatda.data.MockPreparationData;
+import com.amatda.data.source.CarrierData;
 import com.amatda.main.domain.model.Task;
+import com.amatda.util.CarrierConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +54,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class CarrierMainFragment extends Fragment
         implements CarrierMainContract.View, View.OnClickListener {
 
+    private Realm realm;
+
     private CarrierMainContract.Presenter mPresenter;
     private PreparationBeforeListAdapter mBeforeListAdapter;
     private PreparationBeforeListAdapter mAfterListAdapter;
@@ -65,6 +70,9 @@ public class CarrierMainFragment extends Fragment
     private ImageView imageCarrierMainSetting;
     private View viewCarrierMainCancelScreen;
     private ImageView imageCarrierMainSample;
+    private TextView textCarrierMainCity;
+    private TextView textCarrierMainName;
+
 
     private int cId;
 
@@ -85,17 +93,13 @@ public class CarrierMainFragment extends Fragment
         super.onCreate(savedInstanceState);
         mBeforeDatas = new ArrayList<>();
         mAfterDatas = new ArrayList<>();
+        realm = Realm.getDefaultInstance();
         mPresenter.start();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
-        for (MockPreparationData data : realmResults) {
-            mBeforeDatas.add(data);
-            mBeforeDatas.add(data);
-        }
+    private void setCarrierInfo(CarrierData data) {
+        textCarrierMainCity.setText(CarrierConstant.CARRIER_CITY_LIST.get(data.getCountry()));
+        textCarrierMainName.setText(data.getStartDate());
     }
 
     @Override
@@ -120,7 +124,7 @@ public class CarrierMainFragment extends Fragment
             cId = 0;
         }
 
-        mPresenter.getInfoCarrier(cId);
+//        mPresenter.getInfoCarrier(cId);
 
         layoutCarrierMainBottomSheet = view.findViewById(R.id.layoutCarrierMainBottomSheet);
         imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
@@ -128,6 +132,8 @@ public class CarrierMainFragment extends Fragment
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
         viewCarrierMainCancelScreen = view.findViewById(R.id.viewCarrierMainCancelScreen);
         imageCarrierMainSample = view.findViewById(R.id.imageCarrierMainSample);
+        textCarrierMainCity = view.findViewById(R.id.textCarrierMainCity);
+        textCarrierMainName = view.findViewById(R.id.textCarrierMainName);
 
         imageCarrierMainMenu.setOnClickListener(this);
         imageCarrierMainSetting.setOnClickListener(this);
@@ -144,6 +150,13 @@ public class CarrierMainFragment extends Fragment
                 mPresenter.addNewTask();
             }
         });
+
+        // todo 현재 시간과 가장 가까이 다가오는 캐리어로 선택해야 함
+//        RealmResults<CarrierData> realmResults = Realm.getDefaultInstance().where(CarrierData.class).findAll();
+
+        CarrierData lastData = realm.where(CarrierData.class).findAll().last();
+        setCarrierInfo(lastData);
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
