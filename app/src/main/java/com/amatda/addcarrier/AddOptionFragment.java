@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.amatda.R;
+import com.amatda.main.CarrierMainActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,13 +25,6 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
     private static final String KEY_VALUE_DATE = "KEY_VALUE_DATE";
     private static final int SIZE_OPTIONS = 7;
 
-//    private View layoutAddOptionNone;
-//    private View layoutAddOptionEssential;
-//    private View layoutAddOptionSwimming;
-//    private View layoutAddOptionWinter;
-//    private View layoutAddOptionCamping;
-//    private View layoutAddOptionBusiness;
-//    private View layoutAddOptionBaby;
     private CheckBox checkAddOptionNone;
     private CheckBox checkAddOptionEssential;
     private CheckBox checkAddOptionSwimming;
@@ -74,13 +68,6 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_option, container, false);
 
-//        layoutAddOptionNone = view.findViewById(R.id.layoutAddOptionNone);
-//        layoutAddOptionEssential = view.findViewById(R.id.layoutAddOptionEssential);
-//        layoutAddOptionSwimming = view.findViewById(R.id.layoutAddOptionSwimming);
-//        layoutAddOptionWinter = view.findViewById(R.id.layoutAddOptionWinter);
-//        layoutAddOptionCamping = view.findViewById(R.id.layoutAddOptionCamping);
-//        layoutAddOptionBusiness = view.findViewById(R.id.layoutAddOptionBusiness);
-//        layoutAddOptionBaby = view.findViewById(R.id.checkAddOptionNone);
         buttonAddOptionNext = view.findViewById(R.id.buttonAddOptionNext);
         checkAddOptionNone = view.findViewById(R.id.checkAddOptionNone);
         checkAddOptionEssential = view.findViewById(R.id.checkAddOptionEssential);
@@ -104,13 +91,6 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
         viewAddOptionBusiness= view.findViewById(R.id.viewAddOptionBusiness);
         viewAddOptionBaby = view.findViewById(R.id.viewAddOptionBaby);
 
-//        layoutAddOptionNone.setOnClickListener(this);
-//        layoutAddOptionEssential.setOnClickListener(this);
-//        layoutAddOptionSwimming.setOnClickListener(this);
-//        layoutAddOptionWinter.setOnClickListener(this);
-//        layoutAddOptionCamping.setOnClickListener(this);
-//        layoutAddOptionBusiness.setOnClickListener(this);
-//        layoutAddOptionBaby.setOnClickListener(this);
         buttonAddOptionNext.setOnClickListener(this);
         viewAddOptionNone.setOnClickListener(this);
         viewAddOptionEssential.setOnClickListener(this);
@@ -150,6 +130,7 @@ public class AddOptionFragment extends Fragment implements View.OnClickListener 
                 for (int i = 0; i < SIZE_OPTIONS; i++) {
                     if (mapOptions.get(i)) {
                         Log.d("AddOptionFragment", " * * * options : " + (i+1));
+                        CarrierMainActivity.startCarrierMainActivity(getContext());
                     }
                 }
                 break;
