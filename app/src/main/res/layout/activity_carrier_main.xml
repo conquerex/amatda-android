@@ -18,7 +18,8 @@
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/sample_yellow">
+            android:background="@color/sample_yellow"
+            android:visibility="gone">
 
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
