@@ -36,7 +36,9 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
                 if (results.isEmpty()) {
-                    AddCarrierActivity.startAddCarrierActivity(getApplicationContext());
+                    // todo : AddCarrierActivity로 복원해야 함
+                    // AddCarrierActivity.startAddCarrierActivity(getApplicationContext());
+                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
                     Log.d("SplashActivity", " * * * result empty");
                     /*
                     for (int i = 1; i < 4; i++) {

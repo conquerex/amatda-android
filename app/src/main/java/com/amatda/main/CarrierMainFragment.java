@@ -1,18 +1,3 @@
-/*
- * Copyright 2016, The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 package com.amatda.main;
 
@@ -53,7 +38,7 @@ public class CarrierMainFragment extends Fragment
 
     private CarrierMainContract.Presenter mPresenter;
     private PreparationBeforeListAdapter mBeforeListAdapter;
-    private PreparationBeforeListAdapter mAfterListAdapter;
+    private PreparationAfterListAdapter mAfterListAdapter;
     private ArrayList<MockPreparationData> mBeforeDatas;
     private ArrayList<MockPreparationData> mAfterDatas;
     private BottomSheetBehavior bottomSheetBehavior;
@@ -61,6 +46,7 @@ public class CarrierMainFragment extends Fragment
     private LinearLayout layoutCarrierMainBottomSheet;
     private FloatingActionButton fabCarrierAddPreparation;
     private RecyclerView recyclerCarrierMainBeforeList;
+    private RecyclerView recyclerCarrierMainAfterList;
     private ImageView imageCarrierMainMenu;
     private ImageView imageCarrierMainSetting;
     private View viewCarrierMainCancelScreen;
@@ -88,6 +74,7 @@ public class CarrierMainFragment extends Fragment
         RealmResults<MockPreparationData> realmResults = Realm.getDefaultInstance().where(MockPreparationData.class).findAll();
         for (MockPreparationData data : realmResults) {
             mBeforeDatas.add(data);
+            mAfterDatas.add(data);
         }
     }
 
@@ -111,6 +98,7 @@ public class CarrierMainFragment extends Fragment
         imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
         imageCarrierMainSetting = view.findViewById(R.id.imageCarrierMainSetting);
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
+        recyclerCarrierMainAfterList = view.findViewById(R.id.recyclerCarrierMainAfterList);
         viewCarrierMainCancelScreen = view.findViewById(R.id.viewCarrierMainCancelScreen);
         imageCarrierMainSample = view.findViewById(R.id.imageCarrierMainSample);
 
@@ -130,18 +118,19 @@ public class CarrierMainFragment extends Fragment
             }
         });
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager beforeLayoutManager = new LinearLayoutManager(getContext());
+        RecyclerView.LayoutManager afterLayoutManager = new LinearLayoutManager(getContext());
 
         // Uncheck list
         mBeforeListAdapter = new PreparationBeforeListAdapter();
         recyclerCarrierMainBeforeList.setAdapter(mBeforeListAdapter);
-        recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
+        recyclerCarrierMainBeforeList.setLayoutManager(beforeLayoutManager);
         mBeforeListAdapter.notifyDataSetChanged();
 
         // Checked list
-        mAfterListAdapter = new PreparationBeforeListAdapter();
-        recyclerCarrierMainBeforeList.setAdapter(mAfterListAdapter);
-        recyclerCarrierMainBeforeList.setLayoutManager(layoutManager);
+        mAfterListAdapter = new PreparationAfterListAdapter();
+        recyclerCarrierMainAfterList.setAdapter(mAfterListAdapter);
+        recyclerCarrierMainAfterList.setLayoutManager(afterLayoutManager);
         mAfterListAdapter.notifyDataSetChanged();
 
         bottomSheetBehavior = BottomSheetBehavior.from(layoutCarrierMainBottomSheet);
