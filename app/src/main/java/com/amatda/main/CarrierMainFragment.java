@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.amatda.R;
 import com.amatda.addcarrier.AddCarrierActivity;
@@ -51,7 +52,7 @@ public class CarrierMainFragment extends Fragment
     private ImageView imageCarrierMainSetting;
     private ImageView imageCarrierMainAdd;
     private View viewCarrierMainCancelScreen;
-    private ImageView imageCarrierMainSample;
+    private TextView textCarrierMainComplete;
 
     public CarrierMainFragment() {
         // Requires empty public constructor
@@ -102,13 +103,13 @@ public class CarrierMainFragment extends Fragment
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
         recyclerCarrierMainAfterList = view.findViewById(R.id.recyclerCarrierMainAfterList);
         viewCarrierMainCancelScreen = view.findViewById(R.id.viewCarrierMainCancelScreen);
-        imageCarrierMainSample = view.findViewById(R.id.imageCarrierMainSample);
+        textCarrierMainComplete = view.findViewById(R.id.textCarrierMainComplete);
 
         imageCarrierMainMenu.setOnClickListener(this);
         imageCarrierMainSetting.setOnClickListener(this);
         viewCarrierMainCancelScreen.setOnClickListener(this);
-        imageCarrierMainSample.setOnClickListener(this);
         imageCarrierMainAdd.setOnClickListener(this);
+        textCarrierMainComplete.setOnClickListener(this);
 
         // Set up floating action button
 //        fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
@@ -193,8 +194,8 @@ public class CarrierMainFragment extends Fragment
                 viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
-            case R.id.imageCarrierMainSample:
-                AddCarrierActivity.startAddCarrierActivity(getContext());
+            case R.id.textCarrierMainComplete:
+                //
                 break;
             default:
                 break;

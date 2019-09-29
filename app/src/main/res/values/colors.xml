@@ -29,6 +29,8 @@
     <color name="white">#ffffff</color>
     <color name="rose">#ff5736</color>
     <color name="scarlet">#ff5400</color>
+    <color name="greenyblue">#32aba9</color>
+    <color name="cornflowerblue">#5d67c9</color>
 
     <color name="sample_yellow">#fdffaf</color>
     <color name="sample_pink">#ffc1fa</color>
