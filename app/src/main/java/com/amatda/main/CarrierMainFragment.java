@@ -49,6 +49,7 @@ public class CarrierMainFragment extends Fragment
     private RecyclerView recyclerCarrierMainAfterList;
     private ImageView imageCarrierMainMenu;
     private ImageView imageCarrierMainSetting;
+    private ImageView imageCarrierMainAdd;
     private View viewCarrierMainCancelScreen;
     private ImageView imageCarrierMainSample;
 
@@ -97,6 +98,7 @@ public class CarrierMainFragment extends Fragment
         layoutCarrierMainBottomSheet = view.findViewById(R.id.layoutCarrierMainBottomSheet);
         imageCarrierMainMenu = view.findViewById(R.id.imageCarrierMainMenu);
         imageCarrierMainSetting = view.findViewById(R.id.imageCarrierMainSetting);
+        imageCarrierMainAdd = view.findViewById(R.id.imageCarrierMainAdd);
         recyclerCarrierMainBeforeList = view.findViewById(R.id.recyclerCarrierMainBeforeList);
         recyclerCarrierMainAfterList = view.findViewById(R.id.recyclerCarrierMainAfterList);
         viewCarrierMainCancelScreen = view.findViewById(R.id.viewCarrierMainCancelScreen);
@@ -106,17 +108,18 @@ public class CarrierMainFragment extends Fragment
         imageCarrierMainSetting.setOnClickListener(this);
         viewCarrierMainCancelScreen.setOnClickListener(this);
         imageCarrierMainSample.setOnClickListener(this);
+        imageCarrierMainAdd.setOnClickListener(this);
 
         // Set up floating action button
-        fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
-
-        fabCarrierAddPreparation.setImageResource(R.drawable.ic_add);
-        fabCarrierAddPreparation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.addNewTask();
-            }
-        });
+//        fabCarrierAddPreparation = getActivity().findViewById(R.id.fabCarrierAddPreparation);
+//
+//        fabCarrierAddPreparation.setImageResource(R.drawable.ic_add);
+//        fabCarrierAddPreparation.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPresenter.addNewTask();
+//            }
+//        });
 
         RecyclerView.LayoutManager beforeLayoutManager = new LinearLayoutManager(getContext());
         RecyclerView.LayoutManager afterLayoutManager = new LinearLayoutManager(getContext());
@@ -185,6 +188,10 @@ public class CarrierMainFragment extends Fragment
             case R.id.viewCarrierMainCancelScreen:
                 viewCarrierMainCancelScreen.setVisibility(View.GONE);
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                break;
+            case R.id.imageCarrierMainAdd:
+                viewCarrierMainCancelScreen.setVisibility(View.VISIBLE);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                 break;
             case R.id.imageCarrierMainSample:
                 AddCarrierActivity.startAddCarrierActivity(getContext());
