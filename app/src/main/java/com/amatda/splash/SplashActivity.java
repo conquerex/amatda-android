@@ -19,6 +19,7 @@ import io.realm.RealmResults;
 public class SplashActivity extends Activity {
 
     LottieAnimationView lottieSplash;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +38,9 @@ public class SplashActivity extends Activity {
             public void run() {
                 if (results.isEmpty()) {
                     // todo : AddCarrierActivity로 복원해야 함
-                    // AddCarrierActivity.startAddCarrierActivity(getApplicationContext());
-                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
                     Log.d("SplashActivity", " * * * result empty");
+                    AddCarrierActivity.startAddCarrierActivity(getApplicationContext());
+//                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
                     /*
                     for (int i = 1; i < 4; i++) {
                         realm.beginTransaction();
@@ -48,8 +49,11 @@ public class SplashActivity extends Activity {
                     }
                     */
                 } else {
-                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
-                    Log.d("SplashActivity", " * * * result : " + results.toString());
+                    for (Carrier carrier : results) {
+                        Log.d("SplashActivity", " * * * result : " + carrier.getCarrierId());
+                    }
+//                    CarrierMainActivity.startCarrierMainActivity(getApplicationContext());
+//                    Log.d("SplashActivity", " * * * result : " + results.toString());
                 }
                 finish();
             }

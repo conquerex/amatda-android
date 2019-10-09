@@ -7,6 +7,7 @@ import io.realm.annotations.PrimaryKey;
 public class MockPreparationData extends RealmObject {
     @PrimaryKey
     private int id;
+    private int carrierId;
     private String name;
     private RealmList<MockOptionData> options;
     private boolean isRecommend;
@@ -52,10 +53,19 @@ public class MockPreparationData extends RealmObject {
         this.createDate = createDate;
     }
 
+    public int getCarrierId() {
+        return carrierId;
+    }
+
+    public void setCarrierId(int carrierId) {
+        this.carrierId = carrierId;
+    }
+
     @Override
     public String toString() {
         return "MockPreparationData{" +
                 "id=" + id +
+                ", carrierId=" + carrierId +
                 ", name='" + name + '\'' +
                 ", options=" + options +
                 ", isRecommend=" + isRecommend +
